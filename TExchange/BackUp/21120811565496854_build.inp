@@ -1,0 +1,444 @@
+
+**************** タイトル(1) 
+TIT1 /タナカM案_wcs05/ / アール設計事務所/ / /
+
+**************** タイトル(2) 
+TIT2 /埼玉県/ /駐車場/ /10665.62/ /10506.94/ 
+
+**************** 建物の規模 
+SHA1  7     11    3     
+
+**************** 通り名称・階名称 
+SHA2  X     Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+      Y     X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+      Z     1F    2F    RF    
+
+**************** スパン長・階高 
+SHA3  X     767.5 770.0 770.0 770.0 770.0 770.0 770.0 770.0 770.0 767.5 
+      Y     950.0 252.0 405.0 108.0 614.0 765.0 
+      Z     575.0 509.0 
+
+**************** 構造計算用階高差、通りずれ 
+SHA4  X     0     0     0     0     0     0     0     0     0     0     0     
+      Y     0     0     0     0     0     0     0     
+      Z     90    40    30    
+
+**************** *平面形状変更 SHA5  X01   260   0     
+
+**************** X01   Y02   750   0     
+
+**************** X01   Y08   750   0     
+
+**************** X11   Y02   -750  0     
+
+**************** X11   Y08   -750  0     
+
+**************** *立面形状変更 SHA7  1F    X03:X15 Y02:Y08 -35   
+
+**************** *地下階・塔屋階 BAS2  0     1     100.0 0.0   
+
+**************** *スロープ部節点の同一化 SHA9  Z     X01A  Y03A  1FD   RF    
+SHA9 Y02 X01 X02 
+SHA9 Y08 X01 X02 
+SHA9 Y02 X11 X10 
+SHA9 Y08 X11 X10 
+
+****************  
+
+**************** *梁鉄骨断面 
+GME1 S49 H-496*199*09*14*13 M22 
+     S50 H-500*200*10*16*13 M22 
+     S45 H-450*200*09*14*13 M22 
+     S44 H-446*199*08*12*13 M22 
+     S59 H-596*199*10*15*13 M24 
+     S40 H-400*200*8*13*13 M22 
+     S39 H-396*199*7*11*13 M22 
+     S35 H-350*175*7*11*13 M22 
+     S17 H-175*90*5*8*8 M16 
+     S34 H-346*174*6*9*13 M22 
+     S24 H-248*124*5*8*8 M22 
+     S29 H-298*149*5.5*8*13 M22 
+     S60 H-600*200*11*17*13 M22 
+     S58 H-588*300*12*20*13 M22 
+
+**************** *梁鉄筋断面 
+GME2 RB11E 2-2-D25 2-D13-200 
+     RB11C 2-2-D25 2-D13-200 
+
+**************** *梁付帯条件 
+GME3 JY1 * 0-0 * * * 1 
+     WCS1 * 43.5-43.5 * * * 1 
+     WCS2 * 61.0-61.0 * * * 1 
+     GC1 5-D10 * * * * 1 
+     GT * * * * * 1 
+
+**************** *Ｓ大梁部材 
+GMD1 RF G50 E S50 * * WCS2 
+     2F G50 E S50 * * WCS2 
+GMD1 RF G50A E S50 * * WCS2 
+     2F G50A E S50 * * WCS2 
+GMD1 RF G49 E S49 * * WCS2 
+     2F G49 E S49 * * WCS2 
+GMD1 RF G49A E S49 * * WCS2 
+     2F G49A E S49 * * WCS2 
+GMD1 RF G49B E S49 * * JY1 
+     2F G49B E S49 * * JY1 
+GMD1 RF G34B E S34 * * JY1 
+GMD1 RF G29B E S29 * * JY1 
+GMD1 2F G29B E S29 * * JY1 
+GMD1 RF G39B E S39 * * JY1 
+     2F G39B E S39 * * JY1 
+GMD1 2F G60B E S60 * * JY1 
+GMD1 RF G59B E S59 * * JY1 
+     2F G59B E S59 * * JY1 
+GMD1 RF G58B E S58 * * JY1 
+     2F G58B E S58 * * JY1 
+
+**************** *基礎梁部材 
+GMD5 1F FG1 E BD-50.0*110.0 (4-4-D25|2-D13-200) BD-50.0*110.0 (4-4-D25|2-D13-200) * * * * 7 * * * 
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM1  Y01   1F    *     *     *     FG1   FG1   =     FG1   *     *     *     
+PLM1  Y02   1F    *     FG1   FG1   *     *     *     *     FG1   FG1   *     
+PLM1  Y02A  1F    *     *     *     *     FG1   FG1   *     *     *     *     
+PLM1  Y02B   1F    *     *     *     *     *     *     *     *     *     *     
+PLM1  Y03   1F    FG1   *     FG1   *     FG1   FG1   *     FG1   *     FG1   
+PLM1  Y06   1F    FG1   *     FG1   *     FG1   FG1   *     FG1   *     FG1   
+PLM1  Y08   1F    *     FG1   FG1   FG1   FG1   FG1   FG1   FG1   FG1   *     
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM1  Y01   2F    *     *     *     G29B  G59B  =     G29B  *     *     *     
+PLM1  Y02   2F    *     G60B  G60B  G60B  G60B  G60B  G60B  G60B  G60B  *     
+PLM1  Y02A  2F    *     *     *     *     G60B  G60B  *     *     *     *     
+PLM1  Y02B   2F    *     *     *     *     G58B  G58B  *     *     *     *     
+PLM1  Y03   2F    G49B  G60B  G60B  G60B  *     *     G60B  G60B  G60B  G49B  
+PLM1  Y06   2F    G49B  G60B  G60B  G60B  G58B  G58B  G60B  G60B  G60B  G49B  
+PLM1  Y08   2F    *     G60B  G60B  G60B  G60B  G60B  G60B  G60B  G60B  *     
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM1  Y01   RF    *     *     *     *     *     *     *     *     *     *     
+PLM1  Y02   RF    *     G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  *     
+PLM1  Y02A  RF    *     *     *     *     G34B  G34B  *     *     *     *     
+PLM1  Y03   RF    G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  
+PLM1  Y06   RF    G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  
+PLM1  Y08   RF    *     G34B  G34B  G34B  G34B  G34B  G34B  G34B  G34B  *     
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM1  X01   1F    *     FG1   =     =     FG1   FG1   
+PLM1  X02   1F    *     FG1   =     =     FG1   FG1   
+PLM1  X03   1F    *     FG1   =     =     FG1   FG1   
+PLM1  X04   1F    FG1   FG1   =     =     FG1   FG1   
+PLM1  X05   1F    FG1   =     FG1   =     FG1   FG1   
+PLM1  X06   1F    *     *     FG1   FG1   FG1   FG1   
+PLM1  X07   1F    FG1   =     FG1   =     FG1   FG1   
+PLM1  X08   1F    FG1   FG1   =     =     FG1   FG1   
+PLM1  X09   1F    *     FG1   =     =     FG1   FG1   
+PLM1  X10   1F    *     FG1   =     =     FG1   FG1   
+PLM1  X11   1F    *     FG1   =     =     FG1   FG1   
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM1  X01   2F    *     G60B  =     =     G49   G60B  
+PLM1  X02   2F    *     G49   =     =     G49   G49   
+PLM1  X03   2F    *     G49A  =     =     G49   G49A  
+PLM1  X04   2F    G59B  G49   =     =     G49   G49   
+PLM1  X05   2F    G59B  G49A  G60B  G60B  G49   G49A  
+PLM1  X06   2F    *     G49A  G49A  G49   =     G49   
+PLM1  X07   2F    G59B  G49A  G60B  G60B  G49   G49A  
+PLM1  X08   2F    G59B  G49   =     =     G49   G49   
+PLM1  X09   2F    *     G49A  =     =     G49   G49A  
+PLM1  X10   2F    *     G49   =     =     G49   G49   
+PLM1  X11   2F    *     G60B  =     =     G49   G60B  
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM1  X01   RF    *     G39B  =     =     G34B  G39B  
+PLM1  X02   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X03   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X04   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X05   RF    *     G34B  G34B  =     G34B  G34B  
+PLM1  X06   RF    *     G34B  G34B  G34B  G34B  G34B  
+PLM1  X07   RF    *     G34B  G34B  =     G34B  G34B  
+PLM1  X08   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X09   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X10   RF    *     G34B  =     =     G34B  G34B  
+PLM1  X11   RF    *     G39B  =     =     G34B  G39B  
+
+**************** *梁天端寸法の配置(段差） 
+PLM7 1F Y01:Y08 X01:X11 30.0 
+PLM7 1F X01:X11 Y01:Y08 30.0 
+
+**************** *****************************柱情報************************************ 
+
+**************** *     柱鉄骨断面 
+CME1 H3535X H-300*300*10*15*13-SM490 * 
+     H3535Y * H-300*300*10*15*13-SM490 
+     H5030Y * H-390*300*10*16*13-SM490 
+
+**************** CME2  BC1T  4/2-4/2-12-D38 2-2-D13-100 
+
+**************** *     柱付帯条件 
+
+**************** DX*DY JX    JY    NXNY  5     6     7     T     BPL材  ｱﾝｶｰ材 
+CME3 CB2X BP-50*50 AB-40*40 3-3-8-M33-66 * * * 40 SM490 ABR490 * * * * * * 
+CME3 CB1Y BP-50*60 AB-40*50 2-3-6-M33-66 * * * 40 SM490 ABR490 * * * * * * 
+     CB2Y BP-50*50 AB-40*40 3-3-8-M33-78 * * * 40 SM490 ABR490 * * * * * * 
+
+**************** *S柱部材 
+CMD1 2F C30X H3535X * * * * * 1.0 
+     1F C30X H3535X * CB2X * * * 1.0 
+CMD1 2F C50Y H5030Y * * * * 1.0 * 
+     1F C50Y H5030Y * CB1Y * * 1.0 * 
+CMD1 2F C30Y H3535Y * * * * 1.0 * 
+     1F C30Y H3535Y * CB2Y * * 1.0 * 
+
+**************** **    柱の配置  
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM2  Y01   1F    *     *     *     C30X   C30X   *     C30X   C30X   *     *     *     
+PLM2  Y02   1F    *     C30Y   C30X   C30Y   *     *     *     C30Y   C30X   C30Y   *     
+PLM2  Y02A  1F    *     *     *     *     C30Y   C30Y   C30Y   *     *     *     *     
+PLM2  Y02B   1F    *     *     *     *     *     C50Y   *     *     *     *     *     
+PLM2  Y03   1F    C30Y   C50Y   C30Y   C50Y   C30Y   *     C30Y   C50Y   C30Y   C50Y   C30Y   
+PLM2  Y06   1F    C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   
+PLM2  Y08   1F    *     C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   *     
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM2  Y01   2F    *     *     *     *     *     *     *     *     *     *     *     
+PLM2  Y02   2F    *     C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   *     
+PLM2  Y02A  2F    *     *     *     *     C30Y   C30Y   C30Y   *     *     *     *     
+PLM2  Y02B   2F    *     *     *     *     *     C50Y   *     *     *     *     *     
+PLM2  Y03   2F    C30Y   C50Y   C30Y   C50Y   C30Y   *     C30Y   C50Y   C30Y   C50Y   C30Y   
+PLM2  Y06   2F    C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   C50Y   C30Y   
+PLM2  Y08   2F    *     C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   C30X   C30Y   *     
+
+**************** *梁天端寸法の配置(段差） PLM7  1F    Y01   X01:X15 45.0  
+
+**************** ****************************************ブレース情報************************** 
+
+**************** **屋根面水平ブレース 
+BMD3 HV1 TB-M16 X SS400 * T 
+PLS5 RF X02:X03 Y02:Y03 HV1 
+PLS5 RF X03:X04 Y02:Y03 HV1 
+PLS5 RF X04:X05 Y02:Y03 HV1 
+PLS5 RF X05:X06 Y02:Y02A HV1 
+PLS5 RF X05:X06 Y02A:Y03 HV1 
+PLS5 RF X06:X07 Y02:Y02A HV1 
+PLS5 RF X06:X07 Y02A:Y03 HV1 
+PLS5 RF X07:X08 Y02:Y03 HV1 
+PLS5 RF X08:X09 Y02:Y03 HV1 
+PLS5 RF X09:X10 Y02:Y03 HV1 
+PLS5 RF X01:X02 Y03:Y06 HV1 
+PLS5 RF X02:X03 Y03:Y06 HV1 
+PLS5 RF X03:X04 Y03:Y06 HV1 
+PLS5 RF X04:X05 Y03:Y06 HV1 
+PLS5 RF X05:X06 Y03:Y06 HV1 
+PLS5 RF X06:X07 Y03:Y06 HV1 
+PLS5 RF X07:X08 Y03:Y06 HV1 
+PLS5 RF X08:X09 Y03:Y06 HV1 
+PLS5 RF X09:X10 Y03:Y06 HV1 
+PLS5 RF X10:X11 Y03:Y06 HV1 
+PLS5 RF X02:X03 Y06:Y08 HV1 
+PLS5 RF X03:X04 Y06:Y08 HV1 
+PLS5 RF X04:X05 Y06:Y08 HV1 
+PLS5 RF X05:X06 Y06:Y08 HV1 
+PLS5 RF X06:X07 Y06:Y08 HV1 
+PLS5 RF X07:X08 Y06:Y08 HV1 
+PLS5 RF X08:X09 Y06:Y08 HV1 
+PLS5 RF X09:X10 Y06:Y08 HV1 
+BMD1 V1 2C#14-SS400 X T * 0.70 * 400 
+BMD1 V1N 2C#14-SS400 N T * 0.70 * 400 
+BMD1 V1Z 2C#14-SS400 Z T * 0.70 * 400 
+BMD1 V2 2L#12-SS400 X T * 0.70 * 400 
+BMD1 V2N 2L#12-SS400 N T * 0.70 * 400 
+BMD1 V2Z 2L#12-SS400 Z T * 0.70 * 400 
+BMD1 V3 2C#18-SS400 X T * 0.70 * 400 
+BMD1 V3N 2C#18-SS400 N T * 0.70 * 400 
+BMD1 V3Z 2C#18-SS400 Z T * 0.70 * 400 
+BMD1 V11 2C#14-SS400 X T * 0.70 * 400 
+BMD1 V11N 2C#14-SS400 N T * 0.70 * 400 
+BMD1 V11Z 2C#14-SS400 Z T * 0.70 * 400 
+BMD1 V12 2L#18-SS400 X T * 1.00 * 400 
+BMD1 V12N 2L#18-SS400 N T * 1.00 * 400 
+BMD1 V12Z 2L#18-SS400 Z T * 1.00 * 400 
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLM3 Y02 2F * * V2 V1N V1N V1Z V1Z V2 * * 
+PLM3 Y02 1F * * V3 * * * * V3 * * 
+PLM3 Y08 2F * V2N V2Z V2N V2Z V2N V2Z V2N V2Z * 
+PLM3 Y08 1F * V1Z V1N V1Z V1N V1Z V1N V1Z V1N * 
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM3 X03 2F * * * * V12 * 
+PLM3 X03 1F * * * * V11 * 
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM3 X05 2F * V1 * * V12 * 
+PLM3 X05 1F * * * * V11  * 
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM3 X07 2F * V1 * * V12 * 
+PLM3 X07 1F * * * * V11 * 
+
+**************** Y01   Y02   Y02A  Y02B   Y03   Y06   Y08   
+PLM3 X09 2F * * * * V12 * 
+PLM3 X09 1F * * * * V11 * 
+
+**************** ***************************************床組情報******************************* 
+
+**************** *     床荷重   
+ALD3 TL01X 15.0 680 10000-7000-3500 * X 倉庫(2F) 
+     TL01Y 15.0 680 10000-7000-3500 * Y 倉庫(2F) 
+     TL03X 0.0 450 750-750-750 * X 折板屋根(2F) 
+     TL03Y 0.0 450 750-750-750 * Y 折板屋根(2F) 
+     TL04X 0.0 2200 1800-1300-600 * X 折板屋根(2F) 
+     TL04Y 0.0 2200 1800-1300-600 * Y 折板屋根(2F) 
+     TL01 40.0 420 15000-10500-7500 * XY 倉庫(1F) 
+     TL02 40.0 100 2900-1800-800 * XY 休憩室(1F) 
+     TL04 40.0 420 12000-9000-6000 * X バース(2F) 
+
+**************** *     小梁    
+SMD1 LB * H-175*90*5.0*8*8 * * * * N 
+     B17 * H-175*90*5.0*8*8 * * * * N 
+     B20 * H-200*100*5.5*8*8 * * * * Y 
+     B24 * H-248*124*5.0*8*8 * * * * N 
+     B25 * H-250*125*6.0*9*8 * * * * Y 
+     B29 * H-298*149*5.5*8*13 * * * * Y 
+     B30 * H-300*150*6.5*9*13 * * * * Y 
+     B34 * H-346*174*6.0*9*13 * * * * Y 
+     B35 * H-350*175*7*11*13 * * * * Y 
+     B39 * H-396*199*7*11*13 * * * * Y 
+     B44 * H-446*199*8*12*13 * * * * Y 
+     B49 * H-496*199*9*14*13 * * * * Y 
+     B59 * H-596*199*10*15*13 * * * * Y 
+     B60 * H-582*300*12*17*13 * * * * Y 
+     FB1 BD-45*60 * * * * * * 
+
+**************** ***************************************床組情報******************************* 
+
+**************** *     床組    
+SMD2 FX13 X-3 TL01Y-TL01Y-TL01Y-TL01Y B59-B59-B59 
+SMD2 FX12 X-2 TL01Y-TL01Y-TL01Y B59-B59 
+SMD2 FX11 X-1 TL01Y-TL01Y B59 
+SMD2 FX13B X-3 TL01Y-TL01Y-TL01Y-TL01Y B49-B49-B49 
+SMD2 FX12B X-2 TL01Y-TL01Y-TL01Y B49-B49 
+SMD2 FX11B X-1 TL01Y-TL01Y B49 
+SMD2 FY13B Y-3 TL01X-TL01X-TL01X-TL01X B49-B49-B49 
+SMD2 FY12B Y-2 TL01X-TL01X-TL01X B49-B49 
+SMD2 FY11B Y-1 TL01X-TL01X B49 
+SMD2 FYEV  Y-1 FX11B-*    B49 
+SMD2 FYST  Y-1 TL04Y-FX11B    B49 
+
+SMD2 FY13 Y-3 TL01X-TL01X-TL01X-TL01X B59-B59-B59 
+SMD2 FY12 Y-2 TL01X-TL01X-TL01X B59-B59 
+SMD2 FY11 Y-1 TL01X-TL01X B59 
+SMD2 FXA1 X-1 FY12B-FY12B B59 
+SMD2 FY33 Y-3 TL03X-TL03X-TL03X-TL03X B24-B29-B29 
+SMD2 FY32 Y-2 TL03X-TL03X-TL03X B29-B29 
+SMD2 FY31 Y-1 TL03X-TL03X B29 
+SMD2 FX32B X-2 TL03Y-TL03Y-TL03Y B49-B49 
+SMD2 FX31B X-1 TL03Y-TL03Y B34 
+SMD2 FY31B Y-1 TL03X-TL03X B34 
+SMD2 FX33 X-3 TL03Y-TL03Y-TL03Y-TL03Y B29-B29-B29 
+SMD2 FX32 X-2 TL03Y-TL03Y-TL03Y B29-B29 
+SMD2 FX31 X-1 TL03Y-TL03Y B29 
+
+****************    X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLS1  2F    Y01:Y02  *     *     *     FX32  FX32B FX32B FX32  *     *     *     
+PLS1  2F    Y02:Y02A FX12B FY12B FY12B FY12B TL01Y TL01Y FY12B FY12B FY12B FX12B 
+PLS1  2F    Y02A:Y02B FX12B FY12B FY12B FY12B FYEV  FYST  FY12B FY12B FY12B FX12B 
+PLS1  2F    Y02B:Y03  FX12B FY12B FY12B FY12B FY12B FY12B FY12B FY12B FY12B FX12B 
+PLS1  2F    Y03:Y06  FX12B FX12B FX12B FX12B FY12B FY12B FX12B FX12B FX12B FX12B 
+PLS1  2F    Y06:Y08  FX12B FY12B FY12B FY12B FY12B FY12B FY12B FY12B FY12B FX12B 
+
+**************** X01   X02   X03   X04   X05   X06   X07   X08   X09   X10   X11   
+PLS1  RF    Y01:Y02  *     *     *     *     *     *     *     *     *     *     
+PLS1  RF    Y02:Y02A FX31B FY31B FY31B FY31B TL03Y TL03Y FY31B FY31B FY31B FX31B 
+PLS1  RF    Y02A:Y02B FX31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FX31B 
+PLS1  RF    Y02B:Y03  FX31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FX31B 
+PLS1  RF    Y03:Y06  FX31  FX31  FX31  FX31  FX31  FX31  FX31  FX31  FX31  FX31  
+PLS1  RF    Y06:Y08  FX31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FY31B FX31B 
+
+****************  
+BASB 2 
+
+**************** *壁の配置 
+
+**************** X1    X2    X3    X4    X5    X6    X7    X8    X9    X20A  X21   
+
+**************** Y2    X5F   *     *     *     *     *     C50X   C50X   *     *     *     *     
+
+**************** *片持梁の配置 
+
+**************** 1F    PP    Y2    L     FCG1  *     
+
+**************** 1F    Y1    X21   L     FCG1  *     
+
+**************** 1F    P8    X21   L     FCG1  *     
+
+**************** *片持床の配置 
+
+**************** 2F:RF PP    Y1:Y2 U     CS1   
+
+**************** 2F:RF Y1    X21A1:X21 L     CS2   
+
+**************** 2F:RF P8    X21A1:X21 R     CS2   
+
+**************** *壁開口の配置 
+
+**************** X16   X16A  X17   X17A  X18   X18A  X19   X19A  X20   X20A  X21   
+
+**************** Y16   3S    OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   
+
+**************** *梁寄り寸法の配置(未） 
+
+**************** 2S    Y01   X16A:X21 G     D     -8.5  
+
+**************** *隅切り床の配置 
+
+**************** RF    Y8A:Y06 X16A:X2A RD    SR01  
+
+**************** *     R階外壁  ***   
+
+**************** RF    X19   Y02B:Y02BA 0     0     0.3   L     L     R     
+
+**************** *壁寄り寸法の配置 
+
+**************** 1S:2S Y01   X16A:X21 G     D     0.0   
+
+**************** *梁天端寸法の配置(段差） 
+
+**************** 1F    Y1:P8 X21A:PP 25.0  
+
+**************** 1F    X21A:PP Y1:P8 25.0  
+
+**************** *壁開口  
+
+**************** OY1   600.0 1-50.0-150.0-110.0-90.0 21-0.0-100.0-0.0-200.0 
+
+**************** *鉄骨部材の仕上げ重量 
+ALD2 * * * 1 0 1 0 * * 1.10 1.20 *　　 
+
+**************** *支点位置変更 
+
+**************** 1S    Y01   X16:X24A 
+
+**************** *接点の同一化 
+
+**************** X18   Y02   Y02A  
+
+**************** *コンクリ-ト部材の仕上げ重量 
+ALD1 * * * 0 0 0 
+
+**************** *構造種別 
+BAS1 * 1F:RF S 
+
+**************** *使用コンクリ?ト材料 
+MAT1 1F:RF * FC21 23.0 
+
+**************** *使用鉄筋材料 
+MAT2 D10:D16 SD295 1 D19:D25 SD345 1.1 D29:D51 SD390 1.1 
+
+**************** *使用鉄骨材料 
+
+**************** 梁ﾌﾗﾝｼﾞ ｳｪﾌﾞ  柱ﾌﾗﾝｼﾞ ｳｪﾌﾞ　ﾌﾞﾚｰｽ　壁　　ｱﾝｶｰ　 高力ボルト 
+MAT3 SS400 SS400 SS400 SS400 SS400 SS400 ABR490 
+END   

@@ -1,0 +1,303 @@
+******************************************
+*****      許容応力度計算データ      *****
+******************************************
+*
+*
+***** 計算ル?ト  *****
+BAS3 3 3 1 * * * 1
+***** 代表スラブ  *****
+ALD4 1F:RF TL01Y
+*****  積雪荷重、地盤反力  ******
+ALD5 1 * * 1
+******  地震力計算用諸元  ******
+*     1 2 3    4    5 6 7 8 9 10
+ELD1  * 2 0.2  0.2  * * * * *  *
+*****  部材剛性の評価方法  ******
+STM1 * 2 3-2 * 1.0-1.0 * * * * 1 1 * * 2 2
+* ***** ダミー階の指定  ***** 
+STA9   1FA-D  
+STA9   2FA-D  
+
+*****　剛床解除節点  *****
+STA5  1FA X05     Y01:Y02  Y
+STA5  1FA X06     Y01A:Y02  Y
+STA5  2FA X05:X06 Y01:Y02  Y
+
+
+
+
+*****  大梁断面剛性増減率（部材剛性）  *****
+* φ=1.50  (両側スラブ付)
+* φ=1.25  (片側スラブ付)
+STM6 1FA  Y01  X05:X06 * * * 0.001
+STM6 1FA  Y01A X05:X06 * * * 0.001
+STM6 1FA  X06  Y01A:Y02 * * * 0.001
+
+
+*****************    外部入力荷重     ******************
+***** 大梁追加荷重  ******
+
+ADD1  1FA     Y01  X05:X07   VE  #30   2.0
+ADD1  1FA     Y01A  X05:X07   VE  #30   2.0
+
+
+ADD1  2F      Y01  X03:X04   VE  #30   2.0
+ADD1  2F      Y01  X07:X11   VE  #30   2.0
+ADD1  2F      Y02  X02:X03   VE  #30   2.0
+ADD1  2F      Y02  X04:X07   VE  #30   2.0
+ADD1  2F      Y02A X11:X12   VE  #30   2.0
+ADD1  2F      Y04  X01:X02   VE  #30   2.0
+ADD1  2F      Y06  X11:X12   VE  #30   2.0
+ADD1  2F      Y07  X01:X11   VE  #30   2.0
+
+ADD1  2F      X01  Y04:Y07   VE  #30   2.0
+ADD1  2F      X02  Y02:Y04   VE  #30   2.0
+ADD1  2F      X03  Y01:Y02   VE  #30   2.0
+ADD1  2F      X11  Y01:Y02A  VE  #30   2.0
+ADD1  2F      X11  Y06:Y07   VE  #30   2.0
+ADD1  2F      X12  Y02A:Y06   VE  #30   2.0
+
+ADD1  2FA     Y01   X04:X07   VE  #30   2.0
+ADD1  2FA     Y01A  X04:X07   VE  #30   2.0
+
+ADD1  RF      Y01  X07:X11   VE  #30   2.0
+ADD1  RF      Y02  X02:X07   VE  #30   2.0
+ADD1  RF      Y02A X11:X12   VE  #30   2.0
+ADD1  RF      Y04  X01:X02   VE  #30   2.0
+ADD1  RF      Y06  X11:X12   VE  #30   2.0
+ADD1  RF      Y07  X01:X11   VE  #30   2.0
+ADD1  RF      X01  Y04:Y07   VE  #30   2.0
+ADD1  RF      X02  Y02:Y04   VE  #30   2.0
+ADD1  RF      X11  Y01:Y02A  VE  #30   2.0
+ADD1  RF      X11  Y06:Y07   VE  #30   2.0
+ADD1  RF      X12  Y02A:Y06   VE  #30   2.0
+
+ADD1  RF      X01  Y06:Y07   VE  #30   4.0
+ADD1  RF      X03  Y06:Y07   VE  #30   4.0
+ADD1  RF      Y06  X01:X02A   VE  #30   4.0
+ADD1  RF      Y07  X01:X02A   VE  #30   4.0
+
+ADD1  PHR     X01  Y06:Y07   VE  #30   4.0
+ADD1  PHR     X03  Y06:Y07   VE  #30   4.0
+ADD1  PHR     Y06  X01:X02A   VE  #30   4.0
+ADD1  PHR     Y07  X01:X02A   VE  #30   4.0
+
+ADD4  PHR  Y06  X01 X  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y07  X01 X  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y06  X03 X  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y07  X03 X  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y06  X01 Y  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y07  X01 Y  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y06  X03 Y  * 10 * * * \\+エレベータ水平力
+ADD4  PHR  Y07  X03 Y  * 10 * * * \\+エレベータ水平力
+
+********************     接合条件   ********************
+***** 最下階支点状態変更  ****** 
+SPT1  X11  Y02A FREE
+
+***************************************  大梁のピン（半剛）接合  ******
+***********************Y方向
+***********************X方向
+PIN1    1FA     Y01     X04:X07   LR  
+PIN1    1FA     Y01A    X04:X07   LR  
+PIN1    2F      Y02A    X11:X12   LR  
+PIN1    2F      Y03     X02:X12   LR  
+PIN1    2F      Y04     X01:X10   LR  
+PIN1    2F      Y04     X10:X11   L   
+PIN1    2F      Y04     X11:X12    R  
+PIN1    2F      Y05     X01:X02   L   
+PIN1    2F      Y05     X02:X03    R  
+PIN1    2F      Y05     X03:X10   LR  
+PIN1    2F      Y05     X10:X11   L   
+PIN1    2F      Y05     X11:X12    R  
+PIN1    2F      Y06     X01:X12   LR  
+PIN1    2F      Y07     X01:X03   LR  
+PIN1    2F      X01     Y05:Y06   LR  
+PIN1    2F      X02     Y02:Y03   L   
+PIN1    2F      X02     Y04:Y06   LR  
+PIN1    2F      X03     Y02:Y03   LR  
+PIN1    2F      X03     Y01:Y02   LR  
+PIN1    2F      X03     Y05:Y06   LR  
+PIN1    2F      X03     Y06:Y07    R  
+PIN1    2F      X04     Y01:Y01A   L   
+PIN1    2F      X04     Y01A:Y02    R  
+PIN1    2F      X04     Y02:Y03   L   
+PIN1    2F      X04     Y05:Y06   LR  
+PIN1    2F      X04     Y06:Y07    R  
+PIN1    1FA     X05     Y01:Y01A   L   
+PIN1    1FA     X05     Y01A:Y02    R  
+PIN1    2F      X05     Y02:Y03   L   
+PIN1    2F      X05     Y06:Y07    R  
+PIN1    1FA     X06     Y01:Y01A   L   
+PIN1    1FA     X06     Y01A:Y02    R  
+PIN1    2F      X06     Y02:Y03   L   
+PIN1    2F      X06     Y05:Y06   LR  
+PIN1    2F      X06     Y06:Y07    R  
+PIN1    2F      X07     Y01:Y01A   L   
+PIN1    2F      X07     Y01A:Y02    R  
+PIN1    2F      X07     Y02:Y03   L   
+PIN1    2F      X07     Y06:Y07    R  
+PIN1    2F      X08     Y01:Y02   LR  
+PIN1    2F      X08     Y02:Y03   L   
+PIN1    2F      X08     Y06:Y07    R  
+PIN1    2F      X09     Y01:Y02   LR  
+PIN1    2F      X09     Y02:Y03   L   
+PIN1    2F      X09     Y06:Y07    R  
+PIN1    2F      X10     Y01:Y02   LR  
+PIN1    2F      X10     Y02:Y03   L   
+PIN1    2F      X10     Y06:Y07    R  
+PIN1    2F      X11     Y01:Y02   LR  
+PIN1    2F      X11     Y02:Y03   L   
+PIN1    2F      X11     Y03:Y06   LR  
+PIN1    2F      X11     Y06:Y07    R  
+PIN1    2F      X12     Y02:Y03   LR  
+
+
+PIN1    2FA     Y01     X04:X07   LR  
+PIN1    2FA     Y01A    X04:X07   LR  
+PIN1    RF      Y02A    X11:X12   LR  
+PIN1    RF      Y03     X02:X12   LR  
+PIN1    RF      Y04     X01:X10   LR  
+PIN1    RF      Y04     X10:X11   L   
+PIN1    RF      Y04     X11:X12    R  
+PIN1    RF      Y05     X01:X02   L   
+PIN1    RF      Y05     X02:X03    R  
+PIN1    RF      Y05     X03:X10   LR  
+PIN1    RF      Y05     X10:X11   L   
+PIN1    RF      Y05     X11:X12    R  
+PIN1    RF      Y06     X01:X02   LR  
+PIN1    RF      Y06     X02:X02A   L   
+PIN1    RF      Y06     X02A:X03    R  
+PIN1    RF      Y06     X03:X12   LR  
+PIN1    RF      Y07     X01:X02   LR  
+PIN1    RF      Y07     X02:X02A   L   
+PIN1    RF      Y07     X02A:X03    R  
+PIN1    RF      X01     Y05:Y06   LR  
+PIN1    RF      X02     Y02:Y03   L   
+PIN1    RF      X02     Y04:Y06   LR  
+PIN1    RF      X03     Y02:Y03   LR  
+PIN1    RF      X03     Y01:Y02   LR  
+PIN1    RF      X03     Y05:Y06   LR  
+PIN1    RF      X03     Y06:Y07    R  
+PIN1    RF      X04     Y01:Y01A  L   
+PIN1    RF      X04     Y01A:Y02   R  
+PIN1    RF      X04     Y02:Y03   L   
+PIN1    RF      X04     Y05:Y06   LR  
+PIN1    RF      X04     Y06:Y07    R  
+PIN1    2FA     X05     Y01:Y01A  L   
+PIN1    2FA     X05     Y01A:Y02   R  
+PIN1    RF      X05     Y02:Y03   L   
+PIN1    RF      X05     Y06:Y07    R  
+PIN1    2FA     X06     Y01:Y01A  L   
+PIN1    2FA     X06     Y01A:Y02   R  
+PIN1    RF      X06     Y02:Y03   L   
+PIN1    RF      X06     Y05:Y06   LR  
+PIN1    RF      X06     Y06:Y07    R  
+PIN1    RF      X07     Y01:Y01A  L   
+PIN1    RF      X07     Y01A:Y02   R  
+PIN1    RF      X07     Y02:Y03   L   
+PIN1    RF      X07     Y06:Y07    R  
+PIN1    RF      X08     Y01:Y02   LR  
+PIN1    RF      X08     Y02:Y03   L   
+PIN1    RF      X08     Y06:Y07    R  
+PIN1    RF      X09     Y01:Y02   LR  
+PIN1    RF      X09     Y02:Y03   L   
+PIN1    RF      X09     Y06:Y07    R  
+PIN1    RF      X10     Y01:Y02   LR  
+PIN1    RF      X10     Y02:Y03   L   
+PIN1    RF      X10     Y06:Y07    R  
+PIN1    RF      X11     Y01:Y02   LR  
+PIN1    RF      X11     Y02:Y03   L   
+PIN1    RF      X11     Y03:Y06   LR  
+PIN1    RF      X11     Y06:Y07    R  
+PIN1    RF      X12     Y02:Y03   LR  
+
+********************   応力解析の制御  ******************
+*****鉛直軸変形:5項  *****
+*     1  2  3  4  5   6   7  8  9 10 11 12 13 14 15 
+STA1  *  *  LR LR Y  0.0  Y  *  *  *  *  1  *  1  * 
+*****  断面計算の制御  *****
+*     1  2      3           4       5  6  7  8  9  10 11 12 13 14  15  16  17
+DES1  *  *    21-21       21-21     *  1  *  * 2.2 2.2 2  1  *  *   2   1   1
+*****  鉄骨の有効強度  *****
+DES3  *  *      1         1.0     1.0  *  1 0.7  * 1 *                    \ S
+*****  Ｓ造断面計算条件  *****
+DES4 XY  2  *   3   2  3 * 1.0 * * * 2 2 * 1 2
+*****  ＲＣ断面計算条件  *****
+DES5 * * * * * * * * * * * * * * * 1  \ RC
+*****  ＳＲＣ断面計算条件（１）  *****  DES6 * * * *
+****  ＳＲＣ断面計算条件（２）  *****
+DES7 * * * * * * * * * * * * * 1
+DES9  2   *   *   1   *   *   2
+*********鉄筋間隔の設定(FG2の鉄筋間隔調整)   RMD3 X28  1F Y01:Y02 5 7 10 10 8
+*****  層せん断力係数の直接指定  *****   ELD2  RF 0.35
+****  断面計算指定の制御  *****
+MEC1 1 1 1 1 1 * 2
+****  交差連続梁の梁断面計算指定  *****MEM6  Y2      2F:RF    X2:X3
+***** 断面計算しない大梁の設定  *****
+
+DUM1 X05 1FA   Y01:Y02
+DUM1 X06 1FA   Y01:Y02
+DUM1 Y01 1FA   X05:X07
+DUM1 Y01A 1FA   X05:X07
+
+
+DUM1 X01 2F   Y05:Y06
+DUM1 X02 2F   Y04:Y06
+DUM1 X03 2F   Y01:Y03
+DUM1 X03 2F   Y05:Y06
+DUM1 X04 2F   Y01:Y02 
+DUM1 X04 2F   Y05:Y06 
+DUM1 X07 2F   Y01:Y02 
+DUM1 X08 2F   Y01:Y02
+DUM1 X09 2F   Y01:Y02 
+DUM1 X10 2F   Y01:Y02 
+DUM1 X11 2F   Y01:Y02 
+DUM1 X11 2F   Y03:Y06 
+DUM1 X12 2F   Y02A:Y03 
+DUM1 Y02A 2F  X11:X12 
+DUM1 Y03  2F  X02:X03 
+DUM1 Y03  2F  X10:X12 
+DUM1 Y04  2F  X01:X03 
+DUM1 Y04  2F  X10:X12 
+DUM1 Y05  2F  X01:X12 
+DUM1 Y06  2F  X01:X12 
+DUM1 Y07  2F  X01:X03 
+
+DUM1 X05  2FA   Y01:Y02
+DUM1 X06  2FA   Y01:Y02
+DUM1 Y01  2FA   X04:X07
+DUM1 Y01A 2FA   X04:X07
+
+DUM1 X01 RF   Y05:Y06
+DUM1 X02 RF   Y04:Y06
+DUM1 X03 RF   Y01:Y03
+DUM1 X03 RF   Y05:Y06
+DUM1 X04 RF   Y01:Y02 
+DUM1 X04 RF   Y05:Y06 
+DUM1 X07 RF   Y01:Y02 
+DUM1 X08 RF   Y01:Y02
+DUM1 X09 RF   Y01:Y02 
+DUM1 X10 RF   Y01:Y02 
+DUM1 X11 RF   Y01:Y02 
+DUM1 X11 RF   Y03:Y06 
+DUM1 X12 RF   Y02A:Y03 
+DUM1 Y02A RF  X11:X12 
+DUM1 Y03  RF  X02:X03 
+DUM1 Y03  RF  X10:X12 
+DUM1 Y04  RF  X01:X03 
+DUM1 Y04  RF  X10:X12 
+DUM1 Y05  RF  X01:X12 
+DUM1 Y06  RF  X01:X02 
+DUM1 Y06  RF  X03:X12 
+DUM1 Y07  RF  X01:X02 
+
+*****  横補剛の配置  ***  
+MEM7  2F     Y02   X04:X05 2  
+MEM7  2F     Y02   X06:X07 2  
+
+MEM7  RF     Y02   X04:X05 2  
+MEM7  RF     Y02   X06:X07 2  
+
+*****  断面計算しない大梁の指定  **  DUM1  X21A        2F:RF      Y2:Y7   
+END

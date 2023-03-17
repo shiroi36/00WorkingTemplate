@@ -1,0 +1,559 @@
+******************************************
+*****      許容応力度計算データ      *****
+******************************************
+*
+*
+***** 計算ル－ト  *****
+BAS3 3 3 1 * * * 1
+
+********************   応力解析の制御  ******************
+*****　鉛直軸変形:5項  *****
+*     1  2  3  4  5   6   7  8  9 10 11 12 13 14 15 
+STA1  *  *  LR LR Y  0.0  N  *  *  *  *  2  *  *  * 
+
+***** 代表スラブ  *****
+ALD4 1F:RF TL01X
+
+*****  積雪荷重、地盤反力  ******
+ALD5 1 * * 1
+
+**** 柱設計軸力の低減
+*ALD7 1 * *
+
+*****  断面計算の制御  *****
+*     1  2      3           4       5  6  7  8  9  10 11 12 13 14  15  16  17
+DES1  *  *    21-21       21-21     *  1  *  * 2.0 2.0 *  2  *  *   2   1   1
+
+*****  鉄骨の有効強度  *****
+DES3  *  *      1         1.0     1.0  *  1 0.7  * 1 *                    \ S
+*****  Ｓ造断面計算条件  *****
+DES4 XY  2  *   3   2  3 * * * * * * * * * 2
+*****  ＲＣ断面計算条件  *****
+DES5 * * * * * * * * * * * * * * * 1  \ RC
+*****  ＳＲＣ断面計算条件（１）  *****
+*DES6 * * * *
+****  ＳＲＣ断面計算条件（２）  *****
+DES7 * * * * * * * * * * * * * 1
+*DES8  1  1.0 1.0 2.0  1                                                 \ CG
+DES9  1   *   *   1   *   *   2
+
+*****  Ｓ造梁の上フランジ拘束の直接指定  *****
+*RMD6  
+
+
+*****  層せん断力係数の直接指定  *****
+ELD2 * RF 0.35
+
+
+*****  断面計算指定の制御  *****
+MEC1 1 1 1 1 1 * 2
+
+*****  部分地下階の地震力  *****
+*STA2   1S 1 * * * *
+
+*****  柱主軸の回転  *****
+*STA3  X01  Y03:Y07  -12.8
+
+***** 床剛性解除  *****
+STA5   2FD  Y03A     X01:X02
+STA5   2FD  Y05     X01:X02
+STA5   RFD  Y03A     X01:X02
+STA5   RFD  Y05     X01:X02
+
+STA5   RF  X01     Y06:Y07
+STA5   RFU X01     Y02A:Y05
+STA5   RFU X01A     Y02A:Y05
+
+* 
+* ***** ダミー階の指定  *****
+STA9   2FD-U RFD-U RFU-D
+
+******  地震力計算用諸元  ******
+*     1 2 3    4    5 6 7 8 9 10
+ELD1  * 2 0.22  0.22  * * * * *  *
+
+*****  部材剛性の評価方法  ******
+STM1 * 2 1 * 1.0-1.0 * * * * 1 1 * * 2 2
+
+*****  スラブ上の雑壁  *****
+*STM5   3S   X  Y03  X01A   -98   405  0-1300  *     B  1250
+
+*****  大梁断面剛性増減率（部材剛性）  *****
+* φ=1.50  (両側スラブ付)
+* φ=1.25  (片側スラブ付)
+
+STM6   2FD   X01  Y04:Y05 * * * 0.001
+STM6   2FD   X01A  Y04:Y05 * * * 0.001
+
+STM6   2FD   X01  Y02A:Y04 * * * 0.001
+STM6   2FD   X01A  Y02A:Y04 * * * 0.001
+
+STM6   RFD   X01  Y05:Y06 * * * 0.001
+STM6   RFD   X01A  Y05:Y06 * * * 0.001
+* 
+* STM6   RFD   X01  Y04:Y05 * * * 0.001
+* STM6   RFD   X01A  Y04:Y05 * * * 0.001
+
+STM6   RFD   X01  Y02A:Y04 * * * 0.001
+STM6   RFD   X01A  Y02A:Y04 * * * 0.001
+
+
+*****  柱断面剛性増減率（部材剛性）  ******
+*STM7   1F:2F  X6A       Y1        1.03
+
+*****  大梁の断面計算指定  *****
+*MEM1
+
+*****  柱の断面計算指定  *****
+*MEM2
+
+*****  ﾌﾞﾚｰｽの断面計算指定  *****
+*MEM4
+
+****  交差連続梁の梁断面計算指定  *****
+*MEM6  Y2      1F:RF    X06:X05A
+*      Y7      1F:RF    X06:X05A
+
+
+*
+*****  横補剛の配置  *****
+*MEM7  2F:RF   PX1:PX23  PY1:PY9  4
+
+
+
+
+*****  断面計算しない大梁の指定  *****
+*DUM1  X06        2F:RF      Y2:Y7   
+      
+
+
+
+
+*****************    外部入力荷重     ******************
+***** 大梁追加荷重  ******
+
+
+ADD1  2F    Y01      X01:X30   VE  #30   1.0
+ADD1  RF    Y01      X01:X30   VE  #30   1.0
+
+
+ADD1  2F    Y09      X02B:X30   VE  #30   1.0  
+ADD1  RF    Y09      X02B:X30   VE  #30   1.0  
+
+ADD1  2F    X02B      Y07:Y09   VE  #30   1.0  
+ADD1  RF    X02B      Y07:Y09   VE  #30   1.0  
+
+
+ADD1  2F    X02      Y02A:Y06   VE  #30   1.0  
+ADD1  2F    X02      Y02A:Y06   VE  #30   1.0  
+
+
+
+ADD1  2F    X01      Y06:Y07   VE  #30   1.0  
+ADD1  RF    X01      Y06:Y07   VE  #30   1.0  
+
+ADD1  2FD    X01      Y02A:Y06   VE  #30   1.0  
+ADD1  RFD    X01      Y02A:Y06   VE  #30   1.0  
+
+ADD1  2FD    X01      Y01:Y02A   VE  #30   1.0  
+ADD1  RFD    X01      Y01:Y02A   VE  #30   1.0  
+
+ADD1  RFD    X01      Y02A:Y06   VE  #30   1.0  
+
+
+
+
+ADD1  2F    Y01      X01:X02   V  #12   25
+ADD1  2F    Y01      X01:X02   E  #12   12.5
+
+
+ADD1  RF    Y01      X01:X02   V  #12   25
+ADD1  RF    Y01      X01:X02   E  #12   12.5
+
+ADD1  RF    Y01      X29:X30   V  #12   25
+ADD1  RF    Y01      X29:X30   E  #12   12.5
+
+ADD1  2F    Y01      X29:X30   V  #12   25
+ADD1  2F    Y01      X29:X30   E  #12   12.5
+
+      
+      
+******   柱追加荷重   *****                          
+*ADD2  1F:2F  Y2     PP   V   #11  15.6    
+*      1F:2F  Y1     X05A   V   #11  15.6    
+*      
+******  追加節点重量  *****
+*ADD3  2F:RF  Y1     PO   15.6  12.7  *
+*      2F:RF  Y2     PO   15.6  12.7  *
+*      2F:RF  Y2     X05A   15.6  12.7  *
+*      2F:RF  Y7     X05A   15.6  12.7  *
+
+***** ﾌﾚｰﾑ外重量  *****
+*ADD5 1S     X02B      Y17   340  0  45.0 35.0
+
+*****  小梁追加荷重  *****
+*ADD6 S08YA  1  VE  #10 68.0 135 68.0 270
+
+********************     接合条件   ********************
+***** 最下階支点状態変更  ******
+*SPT1  Y01 X02A FREE
+* SPT1  Y01 X02B FREE
+* SPT1  Y01 X03A FREE
+* SPT1  Y01 X04A FREE
+* SPT1  Y01 X05A FREE
+* SPT1  Y01 X06A FREE
+* SPT1  Y01 X15 FREE
+* SPT1  Y01 X17 FREE
+* SPT1  Y01 X19 FREE
+* SPT1  Y01 X21 FREE
+* SPT1  Y01 X23 FREE
+* SPT1  Y01 X25 FREE
+* SPT1  Y01 X27 FREE
+* SPT1  Y01 X29 FREE
+      
+* SPT1  Y09 X03 FREE
+* SPT1  Y09 X03A FREE
+* SPT1  Y09 X04A FREE
+* SPT1  Y09 X05A FREE
+* SPT1  Y09 X06A FREE
+* SPT1  Y09 X15 FREE
+* SPT1  Y09 X17 FREE
+* SPT1  Y09 X19 FREE
+* SPT1  Y09 X21 FREE
+* SPT1  Y09 X23 FREE
+* SPT1  Y09 X25 FREE
+* SPT1  Y09 X27 FREE
+* SPT1  Y09 X29 FREE
+
+* 
+* SPT1  X03A Y04 FREE
+* SPT1  X03A Y06 FREE
+
+
+* SPT3,RED4,RMD2は独立基礎部の設定です。
+SPT3 X02 Y02:Y06 4E5 4E5
+SPT3 X03 Y02:Y08 4E5 4E5
+SPT3 X04 Y02:Y08 4E5 4E5
+SPT3 X05 Y02:Y08 4E5 4E5
+SPT3 X06 Y02:Y08 4E5 4E5
+SPT3 X14 Y02:Y08 4E5 4E5
+SPT3 X16 Y02:Y08 4E5 4E5
+SPT3 X18 Y02:Y08 4E5 4E5
+SPT3 X20 Y02:Y08 4E5 4E5
+SPT3 X22 Y02:Y08 4E5 4E5
+SPT3 X24 Y02:Y08 4E5 4E5
+SPT3 X26 Y02:Y08 4E5 4E5
+SPT3 X28 Y02:Y08 4E5 4E5
+SPT3 X30 Y02:Y08 4E5 4E5
+
+
+* 剛域長の直接指定(独立基礎部の剛域を設定)
+RED4 1F X02 Y02 * * 95 *
+RED4 1F X02 Y02A * * 95 *
+RED4 1F X02 Y04 * * 95 *
+RED4 1F X02 Y05 * * 95 *
+RED4 1F X02 Y06 * * 95 *
+RED4 1F X03 Y02 * * 95 *
+RED4 1F X03 Y03 * * 95 *
+RED4 1F X03 Y03A * * 95 *
+RED4 1F X03 Y05 * * 95 *
+RED4 1F X03 Y05A * * 95 *
+RED4 1F X03 Y07 * * 95 *
+RED4 1F X03 Y07A * * 95 *
+
+RED4 1F X04 Y02 * * 95 *
+RED4 1F X04 Y03 * * 95 *
+RED4 1F X04 Y04 * * 95 *
+RED4 1F X04 Y05 * * 95 *
+RED4 1F X04 Y06 * * 95 *
+RED4 1F X04 Y07 * * 95 *
+RED4 1F X04 Y08 * * 95 *
+
+RED4 1F X05 Y02 * * 95 *
+RED4 1F X05 Y03 * * 95 *
+RED4 1F X05 Y04 * * 95 *
+RED4 1F X05 Y05 * * 95 *
+RED4 1F X05 Y06 * * 95 *
+RED4 1F X05 Y07 * * 95 *
+RED4 1F X05 Y08 * * 95 *
+
+RED4 1F X06 Y02 * * 95 *
+RED4 1F X06 Y03 * * 95 *
+RED4 1F X06 Y04 * * 95 *
+RED4 1F X06 Y05 * * 95 *
+RED4 1F X06 Y06 * * 95 *
+RED4 1F X06 Y07 * * 95 *
+RED4 1F X06 Y08 * * 95 *
+
+RED4 1F X14 Y02 * * 95 *
+RED4 1F X14 Y03 * * 95 *
+RED4 1F X14 Y04 * * 95 *
+RED4 1F X14 Y05 * * 95 *
+RED4 1F X14 Y06 * * 95 *
+RED4 1F X14 Y07 * * 95 *
+RED4 1F X14 Y08 * * 95 *
+
+RED4 1F X16 Y02 * * 95 *
+RED4 1F X16 Y03 * * 95 *
+RED4 1F X16 Y04 * * 95 *
+RED4 1F X16 Y05 * * 95 *
+RED4 1F X16 Y06 * * 95 *
+RED4 1F X16 Y07 * * 95 *
+RED4 1F X16 Y08 * * 95 *
+
+RED4 1F X18 Y02 * * 95 *
+RED4 1F X18 Y03 * * 95 *
+RED4 1F X18 Y04 * * 95 *
+RED4 1F X18 Y05 * * 95 *
+RED4 1F X18 Y06 * * 95 *
+RED4 1F X18 Y07 * * 95 *
+RED4 1F X18 Y08 * * 95 *
+
+RED4 1F X20 Y02 * * 95 *
+RED4 1F X20 Y03 * * 95 *
+RED4 1F X20 Y04 * * 95 *
+RED4 1F X20 Y05 * * 95 *
+RED4 1F X20 Y06 * * 95 *
+RED4 1F X20 Y07 * * 95 *
+RED4 1F X20 Y08 * * 95 *
+
+RED4 1F X22 Y02 * * 95 *
+RED4 1F X22 Y03 * * 95 *
+RED4 1F X22 Y04 * * 95 *
+RED4 1F X22 Y05 * * 95 *
+RED4 1F X22 Y06 * * 95 *
+RED4 1F X22 Y07 * * 95 *
+RED4 1F X22 Y08 * * 95 *
+
+RED4 1F X24 Y02 * * 95 *
+RED4 1F X24 Y03 * * 95 *
+RED4 1F X24 Y04 * * 95 *
+RED4 1F X24 Y05 * * 95 *
+RED4 1F X24 Y06 * * 95 *
+RED4 1F X24 Y07 * * 95 *
+RED4 1F X24 Y08 * * 95 *
+
+RED4 1F X26 Y02 * * 95 *
+RED4 1F X26 Y03 * * 95 *
+RED4 1F X26 Y04 * * 95 *
+RED4 1F X26 Y05 * * 95 *
+RED4 1F X26 Y06 * * 95 *
+RED4 1F X26 Y07 * * 95 *
+RED4 1F X26 Y08 * * 95 *
+
+RED4 1F X28 Y02 * * 95 *
+RED4 1F X28 Y03 * * 95 *
+RED4 1F X28 Y04 * * 95 *
+RED4 1F X28 Y05 * * 95 *
+RED4 1F X28 Y06 * * 95 *
+RED4 1F X28 Y07 * * 95 *
+RED4 1F X28 Y08 * * 95 *
+
+RED4 1F X30 Y02 * * 95 *
+RED4 1F X30 Y03 * * 95 *
+RED4 1F X30 Y04 * * 95 *
+RED4 1F X30 Y05 * * 95 *
+RED4 1F X30 Y06 * * 95 *
+RED4 1F X30 Y07 * * 95 *
+RED4 1F X30 Y08 * * 95 *
+
+************************************
+RED4 1F Y02 X02 * * 95 *
+RED4 1F Y02 X03 * * 95 *
+RED4 1F Y02 X04 * * 95 *
+RED4 1F Y02 X05 * * 95 *
+RED4 1F Y02 X06 * * 95 *
+RED4 1F Y02 X14 * * 95 *
+RED4 1F Y02 X16 * * 95 *
+RED4 1F Y02 X18 * * 95 *
+RED4 1F Y02 X20 * * 95 *
+RED4 1F Y02 X22 * * 95 *
+RED4 1F Y02 X24 * * 95 *
+RED4 1F Y02 X26 * * 95 *
+RED4 1F Y02 X28 * * 95 *
+RED4 1F Y02 X30 * * 95 *
+
+RED4 1F Y02A X02 * * 95 *
+
+RED4 1F Y03 X03 * * 95 *
+RED4 1F Y03 X04 * * 95 *
+RED4 1F Y03 X05 * * 95 *
+RED4 1F Y03 X06 * * 95 *
+RED4 1F Y03 X14 * * 95 *
+RED4 1F Y03 X16 * * 95 *
+RED4 1F Y03 X18 * * 95 *
+RED4 1F Y03 X20 * * 95 *
+RED4 1F Y03 X22 * * 95 *
+RED4 1F Y03 X24 * * 95 *
+RED4 1F Y03 X26 * * 95 *
+RED4 1F Y03 X28 * * 95 *
+RED4 1F Y03 X30 * * 95 *
+
+RED4 1F Y03A X03 * * 95 *
+RED4 1F Y04 X02 * * 95 *
+RED4 1F Y04 X04 * * 95 *
+RED4 1F Y04 X05 * * 95 *
+RED4 1F Y04 X06 * * 95 *
+RED4 1F Y04 X14 * * 95 *
+RED4 1F Y04 X16 * * 95 *
+RED4 1F Y04 X18 * * 95 *
+RED4 1F Y04 X20 * * 95 *
+RED4 1F Y04 X22 * * 95 *
+RED4 1F Y04 X24 * * 95 *
+RED4 1F Y04 X26 * * 95 *
+RED4 1F Y04 X28 * * 95 *
+RED4 1F Y04 X30 * * 95 *
+
+RED4 1F Y05 X02 * * 95 *
+RED4 1F Y05 X03 * * 95 *
+RED4 1F Y05 X04 * * 95 *
+RED4 1F Y05 X05 * * 95 *
+RED4 1F Y05 X06 * * 95 *
+RED4 1F Y05 X14 * * 95 *
+RED4 1F Y05 X16 * * 95 *
+RED4 1F Y05 X18 * * 95 *
+RED4 1F Y05 X20 * * 95 *
+RED4 1F Y05 X22 * * 95 *
+RED4 1F Y05 X24 * * 95 *
+RED4 1F Y05 X26 * * 95 *
+RED4 1F Y05 X28 * * 95 *
+RED4 1F Y05 X30 * * 95 *
+
+RED4 1F Y05A X03 * * 95 *
+
+RED4 1F Y06 X02 * * 95 *
+RED4 1F Y06 X04 * * 95 *
+RED4 1F Y06 X05 * * 95 *
+RED4 1F Y06 X06 * * 95 *
+RED4 1F Y06 X14 * * 95 *
+RED4 1F Y06 X16 * * 95 *
+RED4 1F Y06 X18 * * 95 *
+RED4 1F Y06 X20 * * 95 *
+RED4 1F Y06 X22 * * 95 *
+RED4 1F Y06 X24 * * 95 *
+RED4 1F Y06 X26 * * 95 *
+RED4 1F Y06 X28 * * 95 *
+RED4 1F Y06 X30 * * 95 *
+
+RED4 1F Y07 X03 * * 95 *
+RED4 1F Y07 X04 * * 95 *
+RED4 1F Y07 X05 * * 95 *
+RED4 1F Y07 X06 * * 95 *
+RED4 1F Y07 X14 * * 95 *
+RED4 1F Y07 X16 * * 95 *
+RED4 1F Y07 X18 * * 95 *
+RED4 1F Y07 X20 * * 95 *
+RED4 1F Y07 X22 * * 95 *
+RED4 1F Y07 X24 * * 95 *
+RED4 1F Y07 X26 * * 95 *
+RED4 1F Y07 X28 * * 95 *
+RED4 1F Y07 X30 * * 95 *
+
+RED4 1F Y07A X03 * * 95 *
+
+RED4 1F Y08 X04 * * 95 *
+RED4 1F Y08 X05 * * 95 *
+RED4 1F Y08 X06 * * 95 *
+RED4 1F Y08 X14 * * 95 *
+RED4 1F Y08 X16 * * 95 *
+RED4 1F Y08 X18 * * 95 *
+RED4 1F Y08 X20 * * 95 *
+RED4 1F Y08 X22 * * 95 *
+RED4 1F Y08 X24 * * 95 *
+RED4 1F Y08 X26 * * 95 *
+RED4 1F Y08 X28 * * 95 *
+RED4 1F Y08 X30 * * 95 *
+
+* 柱脚計算位置の指定
+RMD2 X02 2FD:2F Y02:Y08 3 3 3 3
+RMD2 X03:X30 2FD:2F Y02:Y08 3 3 3 3
+
+
+
+
+*
+***************************************  大梁のピン（半剛）接合  ******
+
+*
+***************************************Y方向
+
+PIN1  2FD   X01:X01A   Y02A:Y05   LR
+PIN1  2F   X01   Y06:Y07   LR
+PIN1  RFD   X01:X01A   Y02A:Y06   LR
+PIN1  RF   X01   Y06:Y07   LR
+
+PIN1  RFU   X01   Y01:Y04   LR
+PIN1  RFU   X01   Y04:Y05   LR
+PIN1  RFU   X01   Y05:Y06   LR
+PIN1  RFU   X01A   Y02A:Y06   LR
+
+
+PIN1  2F:RF   X02   Y01:Y02   L
+PIN1  2F:RF   X02   Y06:Y07   LR
+
+
+PIN1  2F:RF   X02B   Y07:Y08   L
+PIN1  2F:RF   X02B   Y08:Y09   R
+
+
+PIN1  2F:RF   X03   Y01:Y02   L
+PIN1  2F:RF   X03   Y08:Y09   R
+PIN1  2F:RF   X03   Y03A:Y04   L
+PIN1  2F:RF   X03   Y04:Y05   R
+PIN1  2F:RF   X03   Y05A:Y06   L
+PIN1  2F:RF   X03   Y06:Y07   R
+PIN1  2F:RF   X03   Y08:Y09   R
+
+
+PIN1  2F:RF   X04:X29   Y01:Y02   L
+PIN1  2F:RF   X04:X29   Y08:Y09   R
+
+
+************************************X方向
+PIN1  2F:RF   Y01    X01:X01A   L
+PIN1  2F:RF   Y01    X29:X30   R
+PIN1  2F:RF   Y02    X01:X02   LR
+PIN1  2F:RF   Y02    X02:X30   LR
+
+PIN1  2FD:RF   Y02A    X01:X01A   L
+PIN1  2FD:RF   Y02A    X01A:X02   R
+PIN1  RFU      Y02A    X01A:X02   LR
+
+
+PIN1  2F:RF   Y03    X02:X30   LR
+
+
+PIN1  2FD:RFU   Y04    X01:X01A   L
+PIN1  2FD:RFU   Y04    X01A:X02   R
+PIN1  2F:RF   Y04    X02:X30   LR
+
+PIN1  2FD:RFU   Y05    X01:X01A   L
+PIN1  2FD:RFU   Y05    X01A:X02   R
+PIN1  2F:RF   Y05    X02:X30   LR
+
+PIN1  2F   Y06    X01:X01A   L
+PIN1  2F   Y06    X01A:X02   R
+PIN1  RF   Y06    X01:X01A   L
+PIN1  RF   Y06    X01A:X02   R
+PIN1  2F:RF   Y06    X02:X30   LR
+
+
+PIN1  2F:RF   Y07    X01:X02   L
+PIN1  2F:RF   Y07    X02:X02B   R
+PIN1  2F:RF   Y07    X02B:X30   LR
+
+PIN1  2F:RF   Y08    X02B:X30   LR
+
+
+PIN1  2F:RF   Y09    X02B:X03   LR
+PIN1  2F:RF   Y09    X03:X04   L
+PIN1  2F:RF   Y09    X29:X30    R
+
+
+
+****柱のピン（半剛）接合****
+*
+***Y方向
+*PIN2   1F:2F   Y2     X05A         B 11153 
+      
+END

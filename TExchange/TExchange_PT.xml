@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TExchangePT>
+	<PE>False</PE>
+	<PT>Y01</PT>
+	<PD>Y1</PD>
+	<PE>False</PE>
+	<PT>Y02</PT>
+	<PD>Y2</PD>
+	<PE>False</PE>
+	<PT>Y03</PT>
+	<PD>Y02B</PD>
+	<PE>False</PE>
+	<PT>Y04</PT>
+	<PD>Y03</PD>
+	<PE>False</PE>
+	<PT>Y05</PT>
+	<PD>Y5</PD>
+	<PE>False</PE>
+	<PT>Y08</PT>
+	<PD>Y05</PD>
+	<PE>False</PE>
+	<PT>X00</PT>
+	<PD>X0</PD>
+	<PE>False</PE>
+	<PT>X01</PT>
+	<PD>X1</PD>
+	<PE>False</PE>
+	<PT>X02</PT>
+	<PD>X2</PD>
+	<PE>False</PE>
+	<PT>X03</PT>
+	<PD>X3</PD>
+	<PE>False</PE>
+	<PT>X04</PT>
+	<PD>X4</PD>
+	<PE>False</PE>
+	<PT>X05</PT>
+	<PD>X5</PD>
+	<PE>False</PE>
+	<PT>X06</PT>
+	<PD>X6</PD>
+	<PE>False</PE>
+	<PT>X07</PT>
+	<PD>X7</PD>
+	<PE>False</PE>
+	<PT>X08</PT>
+	<PD>X8</PD>
+	<PE>False</PE>
+	<PT>X09</PT>
+	<PD>X9</PD>
+	<PE>False</PE>
+	<PT>Y07</PT>
+	<PD>Y7</PD>
+	<PE>False</PE>
+	<PT>Y08</PT>
+	<PD>Y8</PD>
+	<PE>False</PE>
+	<PT>Y09</PT>
+	<PD>Y9</PD>
+	<PE>False</PE>
+	<PT>C1X</PT>
+	<PD>C50X</PD>
+	<PE>False</PE>
+	<PT>C1XA</PT>
+	<PD>C50XA</PD>
+	<PE>False</PE>
+	<PT>C2X</PT>
+	<PD>C30X</PD>
+	<PE>False</PE>
+	<PT>C2XA</PT>
+	<PD>C30XA</PD>
+	<PE>False</PE>
+	<PT>C1Y</PT>
+	<PD>C50Y</PD>
+	<PE>False</PE>
+	<PT>C1YA</PT>
+	<PD>C50YA</PD>
+	<PE>False</PE>
+	<PT>C2Y</PT>
+	<PD>C30Y</PD>
+	<PE>False</PE>
+	<PT>C2YA</PT>
+	<PD>C30YA</PD>
+	<PE>False</PE>
+	<PT>X01</PT>
+	<PD>1</PD>
+	<PE>False</PE>
+	<PT>X02</PT>
+	<PD>2</PD>
+	<PE>False</PE>
+	<PT>X03</PT>
+	<PD>3</PD>
+	<PE>False</PE>
+	<PT>X04</PT>
+	<PD>4</PD>
+	<PE>False</PE>
+	<PT>X05</PT>
+	<PD>5</PD>
+	<PE>False</PE>
+	<PT>X06</PT>
+	<PD>6</PD>
+	<PE>False</PE>
+	<PT>X07</PT>
+	<PD>7</PD>
+	<PE>False</PE>
+	<PT>X08</PT>
+	<PD>8</PD>
+	<PE>False</PE>
+	<PT>X09</PT>
+	<PD>9</PD>
+	<PE>False</PE>
+	<PT>X10</PT>
+	<PD>10</PD>
+	<PE>False</PE>
+	<PT>X11</PT>
+	<PD>11</PD>
+	<PE>False</PE>
+	<PT>Y01</PT>
+	<PD>A</PD>
+	<PE>False</PE>
+	<PT>Y02</PT>
+	<PD>B</PD>
+	<PE>False</PE>
+	<PT>Y02A</PT>
+	<PD>C</PD>
+	<PE>False</PE>
+	<PT>Y02B</PT>
+	<PD>CA</PD>
+	<PE>False</PE>
+	<PT>Y03</PT>
+	<PD>D</PD>
+	<PE>False</PE>
+	<PT>Y04</PT>
+	<PD>E</PD>
+	<PE>False</PE>
+	<PT>Y05</PT>
+	<PD>F</PD>
+	<PE>True</PE>
+	<PT>BA</PT>
+	<PD>C</PD>
+	<PE>True</PE>
+	<PT>BB</PT>
+	<PD>CA</PD>
+	<F>TC:\temp2\タナカM案_wcs18\build.inp</F>
+	<F>TC:\temp2\タナカM案_wcs18\ik5.inp</F>
+	<T>01-</T>
+	<T>cmap.updateOverrides(overrides={'SM490':(True, '#CCCCCC', 'Default', 
+'#CCCCCC'), 'SS400':(True, '#FFFFFF', 'Default', '#FFFFFF')})</T>
+	<T>** FIELD OUTPUT: F-Output-3</T>
+	<T>*Bulk Viscosity
+0.6, 2.0</T>
+	<T>*Bulk Viscosity
+2.0, 2.0</T>
+	<T>*Bulk Viscosity
+0.06, 1.2</T>
+	<T>** FIELD OUTPUT: F-Output-2</T>
+	<D>02-</D>
+	<D>cmap.updateOverrides(overrides={
+'SM490':(True, '#CCCCCC', 'Default','#CCCCCC'),
+'K490':(True, '#CCCCCC', 'Default','#CCCCCC'),
+'K400':(True, '#CCCCCC', 'Default','#CCCCCC'),
+ 'SS400':(True, '#FFFFFF', 'Default', '#FFFFFF')} )</D>
+	<D>** FIELD OUTPUT: F-Output-3
+**
+*FILE OUTPUT, NUM=200, TIMEMARKS=NO
+*NODE FILE,NSET=outputnode_rf
+RF
+*NODE FILE,NSET=outputnode_u
+U
+*EL FILE,ELSET=outputelement
+PE,
+E,
+S
+** </D>
+	<D>*Bulk Viscosity
+0.3, 2.0</D>
+	<D>*Bulk Viscosity
+0.6, 2.0</D>
+	<D>*Bulk Viscosity
+2.0, 2.0</D>
+	<D>
+cmap.updateOverrides(overrides={
+'SM490':(True, '#CCCCCC', 'Default','#CCCCCC'),
+'K490':(True, '#CCCCCC', 'Default','#CCCCCC'),
+'K400':(True, '#CCCCCC', 'Default','#CCCCCC'),
+ 'SS400':(True, '#FFFFFF', 'Default', '#FFFFFF')} )</D>
+	<D>** FIELD OUTPUT: F-Output-3
+**
+*FILE OUTPUT, NUM=150, TIMEMARKS=NO
+*NODE FILE,NSET=outputnode_rf
+RF
+*NODE FILE,NSET=outputnode_u
+U
+*EL FILE,ELSET=outputelement
+PE,
+E,
+S
+** </D>
+	<D>** FIELD OUTPUT: F-Output-3
+** 
+** 
+*NODE FILE, MODE=1, LAST MODE=20
+U
+**
+** </D>
+	<D>** FIELD OUTPUT: F-Output-3
+** 
+*FILE OUTPUT, NUM=150, TIMEMARKS=NO
+*NODE FILE,NSET=outputnode_rf
+U,
+RF
+*NODE FILE,NSET=outputnode_u
+U
+*EL FILE,ELSET=outputelement
+PE,
+E,
+S
+** </D>
+	<D>** FIELD OUTPUT: F-Output-2
+**
+*FILE OUTPUT, NUM=150, TIMEMARKS=NO
+*NODE FILE,NSET=outputnode_rf
+RF
+*NODE FILE,NSET=outputnode_u
+U
+*EL FILE,ELSET=outputelement
+PE,
+E,
+S
+** </D>
+</TExchangePT>

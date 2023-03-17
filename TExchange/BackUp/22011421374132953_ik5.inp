@@ -1,0 +1,180 @@
+******************************************
+*****      許容応力度計算データ      *****
+******************************************
+*
+*
+***** 計算ル?ト  *****
+BAS3 3 3 1 * * * 1
+***** 代表スラブ  *****
+ALD4 1F:RF TL01Y
+*****  積雪荷重、地盤反力  ******
+ALD5 1 * * 3-2
+******  地震力計算用諸元  ******
+*     1 2 3    4    5 6 7 8 9 10
+ELD1  * 2 0.2  0.2  * * * * *  *
+*****  部材剛性の評価方法  ******
+STM1 * 2 3-2 * 1.0-1.0 * * * * 1 1 * * 2 2
+* ***** ダミー階の指定  ***** STA9   1FD-D  
+
+*****　剛床解除節点  *****
+STA5  2F  A    4:8  Y
+
+STA5  RF  B    2:10  Y
+STA5  RF  BA   5:7  Y
+STA5  RF  D    1:5  Y
+STA5  RF  D    7:11  Y
+STA5  RF  E    1:5  Y
+STA5  RF  E    7:11  Y
+STA5  RF  F    2:10  Y
+
+
+*****  大梁断面剛性増減率（部材剛性）  *****
+* φ=1.50  (両側スラブ付)
+* φ=1.25  (片側スラブ付)STM6 1FD  1  BA:BB * * * 0.001
+
+
+
+*****************    外部入力荷重     ******************
+***** 大梁追加荷重  ******
+
+
+
+ADD1  2F     1  B:F  VE  #30   6.0
+ADD1  2F     11  B:F  VE  #30   6.0
+ADD1  2F     B  2:10  VE  #30   6.0
+ADD1  2F     F  2:10  VE  #30   6.0
+
+ADD1  RF     1  B:F  VE  #30   3.0
+ADD1  RF     11  B:F  VE  #30   3.0
+ADD1  RF     B  2:10  VE  #30   3.0
+ADD1  RF     F  2:10  VE  #30   3.0
+
+
+
+********************     接合条件   ********************
+***** 最下階支点状態変更  ****** SPT1  2A  B FREE  
+
+
+SPT1  6  D FREE  
+SPT1  5  B FREE  
+SPT1  6  A FREE  
+SPT1  6  B FREE  
+SPT1  7  B FREE  
+
+*SPT1  2  F FREE  
+*SPT1  3  F FREE  
+*SPT1  4  F FREE  
+*SPT1  8  F FREE  
+*SPT1  9  F FREE  
+*SPT1  10  F FREE  
+
+
+***************************************  大梁のピン（半剛）接合  ******
+***********************Y方向
+***********************X方向
+
+PIN1    2F     1     B:D   LR  
+PIN1    2F     1     E:F   LR  
+PIN1    2F     3     B:D   L   
+PIN1    2F     3     D:E    LR  
+PIN1    2F     3     E:F    R  
+PIN1    2F     4     A:B   LR  
+PIN1    2F     4     B:D   L   
+PIN1    2F     5     A:B   LR  
+PIN1    2F     5     BA:BB   L   
+PIN1    2F     5     BB:D     R   
+PIN1    2F     5     D:E    LR  
+PIN1    2F     5     E:F    R  
+PIN1    2F     6     A:B   LR  
+PIN1    2F     6     BA:BB   L   
+PIN1    2F     6     BB:E   LR   
+PIN1    2F     7     A:B   LR  
+PIN1    2F     7     BA:BB   L   
+PIN1    2F     7     BB:D     R   
+PIN1    2F     7     BA:BB   L   
+PIN1    2F     7     D:E    LR  
+PIN1    2F     7     E:F    R  
+PIN1    2F     8     A:B   LR   
+PIN1    2F     8     B:D   L   
+PIN1    2F     9     B:D   L   
+PIN1    2F     9     D:E    LR  
+PIN1    2F     9     E:F    R  
+PIN1    2F     11     B:D   LR  
+PIN1    2F     11     E:F   LR  
+
+PIN1    2F     A     4:5  LR  
+PIN1    2F     A     5:6  L   
+PIN1    2F     A     6:7   R  
+PIN1    2F     A     7:8  LR  
+PIN1    2F     B     2:10  LR  
+PIN1    2F     BA    4:8   LR  
+PIN1    2F     BB     2:10   LR  
+PIN1    2F     D     1:11   LR  
+PIN1    2F     E     1:11   LR  
+PIN1    2F     F     2:10   LR  
+
+PIN1    RF     1     B:F   LR  
+PIN1    RF     2     B:F   LR  
+PIN1    RF     3     B:F   LR  
+PIN1    RF     4     B:F   LR  
+PIN1    RF     5     BA:F   LR  
+PIN1    RF     6     BA:BB  LR  
+PIN1    RF     6     BB:D   L   
+PIN1    RF     6     D:E    R  
+PIN1    RF     6     E:F   LR  
+PIN1    RF     7     BA:F   LR  
+PIN1    RF     8     B:F   LR  
+PIN1    RF     9     B:F   LR  
+PIN1    RF     10     B:F   LR  
+PIN1    RF     11     B:F   LR  
+
+PIN1    RF     B     2:10   LR  
+PIN1    RF     BA    2:10   LR  
+PIN1    RF     D     1:11   LR  
+PIN1    RF     E     1:11   LR  
+PIN1    RF     F     2:10   LR  
+
+********************   応力解析の制御  ******************
+*****鉛直軸変形:5項  *****
+*     1  2  3  4  5   6   7  8  9 10 11 12 13 14 15 
+STA1  *  *  LR LR Y  0.0  Y  *  *  *  *  1  *  1  * 
+*****  断面計算の制御  *****
+*     1  2      3           4       5  6  7  8  9  10 11 12 13 14  15  16  17
+DES1  *  *    21-21       21-21     *  1  *  * 2.2 2.2 2  1  *  *   2   1   1
+*****  鉄骨の有効強度  *****
+DES3  *  *      1         1.0     1.0  *  1 0.7  * 1 *                    \ S
+*****  Ｓ造断面計算条件  *****
+DES4 XY  2  *   3   2  3 * 1.0 * * * 2 2 * 1 1
+*****  ＲＣ断面計算条件  *****
+DES5 * * * * * * * * * * * * * * * 1  \ RC
+*****  ＳＲＣ断面計算条件（１）  *****  DES6 * * * *
+****  ＳＲＣ断面計算条件（２）  *****
+DES7 * * * * * * * * * * * * * 1
+DES9  2   *   *   1   *   *   2
+*********鉄筋間隔の設定(FG2の鉄筋間隔調整)   RMD3 X28  1F Y1:Y2 5 7 10 10 8
+*****  層せん断力係数の直接指定  *****   ELD2  RF 0.35
+****  断面計算指定の制御  *****
+MEC1 1 1 1 1 1 * 2
+****  交差連続梁の梁断面計算指定  *****MEM6  Y2      2F:RF    X2:X3
+***** 断面計算しない大梁の設定  *****DUM1 X5 1FA   Y1:Y2
+
+
+*****  一本梁としての指定  ***  
+
+MEM6  6 1F  BA:E  
+*****  横補剛の配置  ***  
+
+MEM7  2F     3   B:D 1  
+MEM7  2F     3   E:F 1  
+MEM7  2F     4   B:D 1  
+MEM7  2F     4   E:F 1  
+MEM7  2F     5   E:F 1  
+MEM7  2F     6   E:F 1  
+MEM7  2F     7   E:F 1  
+MEM7  2F     8   B:D 1  
+MEM7  2F     8   E:F 1  
+MEM7  2F     9   B:D 1  
+MEM7  2F     9   E:F 1  
+
+*****  断面計算しない大梁の指定  **  DUM1  X21A        2F:RF      Y2:Y7   
+END

@@ -1,0 +1,779 @@
+
+**************** タイトル(1) 
+TIT1 /小松駅計画WCS45/ / 佐藤淳構造設計/ / /
+
+**************** タイトル(2) 
+TIT2 /埼玉県/ /駐車場/ /10665.62/ /10506.94/ 
+
+**************** 建物の規模 
+SHA1  8     9     8     
+
+**************** 通り名称・階名称 
+SHA2  X     Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+      Y     X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+      Z     1F    1FD   2F    2FD   3F    3FD   RF    PHR   
+
+**************** スパン長・階高 
+SHA3  X     250   195   250   400.0 400.0 385.0 312.5 312.5 
+      Y     555.0 40.0  535   365.0 365.0 495.0 595.0 
+      Z     220.0 205.0 130.0 185.0 130.0 185.0 400.0 
+
+**************** 構造計算用階高差、通りずれ 
+SHA4  X     0     0     0     0     0     0     0     0     0     
+      Y     0     0     0     0     0     0     0     0     
+      Z     90    53    53    43    43    43    43    43    
+
+**************** *平面形状変更 
+
+**************** X01   Y01A  0     -260  
+SHA5 X05 Y01A 0 -260 
+SHA5 X04A Y02 -272.5 0 
+SHA5 X04A Y03 -272.5 0 
+SHA5 X04A Y03A -272.5 0 
+SHA5 X04A Y04  -272.5 0 
+SHA5 X04 Y05 0 -165 
+SHA5 X05 Y05 0 -165 
+
+**************** X02   Y06   275   0     
+
+**************** *立面形状変更 
+SHA7 1FD Y01:Y02 X04:X05 119 
+SHA7 2FD Y01:Y02 X04:X05 123.5 
+SHA7 3FD Y01:Y02 X04:X05 123.5 
+SHA7 3FD Y03 X04:X05 -15 
+SHA7 1FD Y03 X04:X05 -0 
+SHA7 1FD Y04 X04:X05 -142.5 
+SHA7 2FD Y03 X04:X05 -15 
+SHA7 1FD Y01 X03 100 
+SHA7 2FD Y01 X03 100 
+SHA7 3FD Y01 X03 100 
+SHA7 1FD Y01A X03 100 
+SHA7 2FD Y01A X03 100 
+SHA7 3FD Y01A X03 100 
+SHA7 2F Y05 X00:X05 8 
+SHA7 2F Y04 X00:X05 15 
+SHA7 2F Y03 X00:X05 -14 
+SHA7 2F Y02 X00:X05 -35.5 
+SHA7 2F Y01A X00:X05 -37 
+SHA7 2F Y01 X00:X05 -55 
+SHA7 3F Y05 X00:X05 8 
+SHA7 3F Y04 X00:X05 15 
+SHA7 3F Y03 X00:X05 -14 
+SHA7 3F Y02 X00:X05 -35.5 
+SHA7 3F Y01A X00:X05 -37 
+SHA7 3F Y01 X00:X05 -55 
+SHA7 RF Y05 X00:X05 8 
+SHA7 RF Y04 X00:X05 15 
+SHA7 RF Y03 X00:X05 -14 
+SHA7 RF Y02 X00:X05 -35.5 
+SHA7 RF Y01A X00:X05 -37 
+SHA7 RF Y01 X00:X05 -55 
+
+**************** *地下階・塔屋階 
+BAS2 0 1 
+
+**************** *スロープ部節点の同一化 
+SHA9 Z X05 Y04 2FD 2F 
+SHA9 Z X04A Y04 2FD 2F 
+SHA9 Z X05 Y04 3FD 3F 
+SHA9 Z X04A Y04 3FD 3F 
+SHA9 Z Y01 X03 1FD 2F 
+SHA9 Z Y01 X03 2FD 3F 
+SHA9 Z Y01 X03 3FD RF 
+SHA9 Z Y01A X03 1FD 2F 
+SHA9 Z Y01A X03 2FD 3F 
+SHA9 Z Y01A X03 3FD RF 
+
+**************** *梁鉄骨断面 
+GME1 S49 H-496*199*09*14*13 M22 
+     S45 H-450*200*09*14*13 M22 
+     S44 H-446*199*08*12*13 M22 
+     S59 H-596*199*10*15*13 M22 
+     M59 H-596*199*10*15*13-SM490 M22 
+     S40 H-400*200*8*13*13 M22 
+     S39 H-396*199*7*11*13 M22 
+     S35 H-350*175*7*11*13 M22 
+     S17 H-175*90*5*8*8 M16 
+     M24 H-248*124*5*8.8*13-SM490 M22 
+     S24 H-248*124*5*8.8*13 M22 
+     S34 H-346*174*6*9*13 M22 
+     M34 H-346*174*6*9*13-SM490 M22 
+     S29 H-298*149*5.5*8*13 M22 
+     S60 H-600*200*11*17*13 M22 
+     M60 H-600*200*11*17*13-SM490 M22 
+     S58 H-582*300*12*17*13 M22 
+
+**************** *梁鉄筋断面 
+GME2 RB11E 2-2-D25 2-D13-200 
+     RB11C 2-2-D25 2-D13-200 
+
+**************** *梁付帯条件 
+GME3 JY1 * 0-0 * * * 1 
+     WCS1 * 43.5-43.5 * * * 1 
+     WCS2 * 61.0-61.0 * * * 1 
+     GC1 5-D10 * * * * 1 
+     GT * * * * * 1 
+
+**************** *Ｓ大梁部材 
+GMD1 RF G59W E S59 * * JY1 
+GMD1 PHR G34W E M34 * * JY1 
+     RF G34W E M34 * * JY1 
+GMD1 RF G29B E S29 * * JY1 
+     3FD G29B E S29 * * JY1 
+     3F G29B E S29 * * JY1 
+     2FD G29B E S29 * * JY1 
+     2F G29B E S29 * * JY1 
+     1FD G29B E S29 * * JY1 
+GMD1 RF G24B E S24 * * JY1 
+     3FD G24B E S24 * * JY1 
+     3F G24B E S24 * * JY1 
+     2FD G24B E S24 * * JY1 
+     2F G24B E S24 * * JY1 
+     1FD G24B E S24 * * JY1 
+GMD1 RF B29 E S29 * * JY1 
+     3FD B29 E S29 * * JY1 
+     3F B29 E S29 * * JY1 
+     2FD B29 E S29 * * JY1 
+     2F B29 E S29 * * JY1 
+     1FD B29 E S29 * * JY1 
+GMD1 RF G34MB E M34 * * JY1 
+     3FD G34MB E M34 * * JY1 
+     3F G34MB E M34 * * JY1 
+     2FD G34MB E M34 * * JY1 
+     2F G34MB E M34 * * JY1 
+     1FD G34MB E M34 * * JY1 
+GMD1 RF G39B E S39 * * JY1 
+     3FD G39B E S39 * * JY1 
+     3F G39B E S39 * * JY1 
+     2FD G39B E S39 * * JY1 
+     2F G39B E S39 * * JY1 
+     1FD G39B E S39 * * JY1 
+GMD1 RF G44B E S44 * * JY1 
+     3FD G44B E S44 * * JY1 
+     3F G44B E S44 * * JY1 
+     2FD G44B E S44 * * JY1 
+     2F G44B E S44 * * JY1 
+     1FD G44B E S44 * * JY1 
+GMD1 RF G49B E S49 * * JY1 
+     3FD G49B E S49 * * JY1 
+     3F G49B E S49 * * JY1 
+     2FD G49B E S49 * * JY1 
+     2F G49B E S49 * * JY1 
+     1FD G49B E S49 * * JY1 
+GMD1 RF G59 E S59 * * WCS2 
+     3FD G59 E S59 * * WCS2 
+     3F G59 E S59 * * WCS2 
+     2FD G59 E S59 * * WCS2 
+     2F G59 E S59 * * WCS2 
+     1FD G59 E S59 * * WCS2 
+GMD1 RF G59B E S59 * * JY1 
+     3FD G59B E S59 * * JY1 
+     3F G59B E S59 * * JY1 
+     2FD G59B E S59 * * JY1 
+     2F G59B E S59 * * JY1 
+     1FD G59B E S59 * * JY1 
+GMD1 RF G58 E S58 * * WCS2 
+     3FD G58 E S58 * * WCS2 
+     3F G58 E S58 * * WCS2 
+     2FD G58 E S58 * * WCS2 
+     2F G58 E S58 * * WCS2 
+     1FD G58 E S58 * * WCS2 
+GMD1 RF G60MB E M60 * * JY1 
+     3FD G60MB E M60 * * JY1 
+     3F G60MB E M60 * * JY1 
+     2FD G60MB E M60 * * JY1 
+     2F G60MB E M60 * * JY1 
+     1FD G60MB E M60 * * JY1 
+GMD1 PHR G39 E S39 * * JY1 
+
+**************** *基礎梁部材 
+GMD5 1F FG1 E BD-60.0*150.0 (3/2-3/2-D25|2-D13-200) BD-60.0*150.0 (3/2-3/2-D25|2-D13-200) * * * * 7 * * * 
+GMD5 1F FG2 E BD-60.0*150.0 (3/3-3/3-D25|2-D13-200) BD-60.0*150.0 (3/3-3/3-D25|2-D13-200) * * * * 7 * * * 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   1F    *     FG1   =     FG2   =     FG1   FG1   =     
+PLM1  Y01A  1F    *     *     *     *     *     *     *     *     
+PLM1  Y02   1F    *     FG2   =     FG2   =     FG1   FG1   =     
+PLM1  Y03   1F    *     FG1   =     =     =     FG1   FG1   =     
+PLM1  Y03A  1F    *     *     *     *     *     *     *     *     
+PLM1  Y04   1F    FG2   FG2   FG1   =     =     FG1   FG1   =     
+PLM1  Y05   1F    FG1   =     *     *     *     *     FG1   =     
+PLM1  Y06   1F    *     *     FG2   FG2   =     FG1   FG1   =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   1FD   *     *     *     *     *     G29B  G58   =     
+PLM1  Y01A  1FD   *     *     *     *     *     B29   *     *     
+PLM1  Y02   1FD   *     *     *     *     *     *     G44B  G44B  
+PLM1  Y03   1FD   *     *     *     *     *     *     G34MB G34MB 
+PLM1  Y03A  1FD   *     *     *     *     *     *     *     *     
+PLM1  Y04   1FD   *     *     *     *     *     *     G34MB G34MB 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   2F    *     G58   =     G58   G58   *     *     *     
+PLM1  Y01A  2F    *     *     *     *     *     *     *     *     
+PLM1  Y02   2F    *     G59B  =     =     =     G58   *     *     
+PLM1  Y03   2F    *     G59B  =     =     =     G58   *     *     
+PLM1  Y03A  2F    *     *     *     *     *     *     *     *     
+PLM1  Y04   2F    G59B  G59B  G60MB =     =     G58   G49B  G49B  
+PLM1  Y05   2F    G24B  =     *     *     *     *     *     *     
+PLM1  Y06   2F    *     *     G58   G58   =     G58   G58   =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   2FD   *     *     *     *     *     G29B  G59   =     
+PLM1  Y01A  2FD   *     *     *     *     *     B29   *     *     
+PLM1  Y02   2FD   *     *     *     *     *     *     G34MB G34MB 
+PLM1  Y03   2FD   *     *     *     *     *     *     G34MB G34MB 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   3F    *     G59   =     G59   G59   *     *     *     
+PLM1  Y01A  3F    *     *     *     *     *     *     *     *     
+PLM1  Y02   3F    *     G49B  =     =     =     G59   *     *     
+PLM1  Y03   3F    *     G49B  =     =     =     G59   *     *     
+PLM1  Y03A  3F    *     *     *     *     *     *     *     *     
+PLM1  Y04   3F    G59B  G59B  G60MB =     =     G59   G44B  G44B  
+PLM1  Y05   3F    G24B  =     *     *     *     *     *     *     
+PLM1  Y06   3F    *     *     G59   G59   =     G59   G59   =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   3FD   *     *     *     *     *     G29B  G59   =     
+PLM1  Y01A  3FD   *     *     *     *     *     B29   *     *     
+PLM1  Y02   3FD   *     *     *     *     *     *     G44B  G44B  
+PLM1  Y03   3FD   *     *     *     *     *     *     G34MB G34MB 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y01   RF    *     G59   =     G59   =     *     *     *     
+PLM1  Y01A  RF    *     *     *     *     *     *     *     *     
+PLM1  Y02   RF    *     G59B  =     =     =     G24B  *     *     
+PLM1  Y03   RF    *     G59B  =     =     =     G24B  *     *     
+PLM1  Y03A  RF    *     *     *     *     *     *     *     *     
+PLM1  Y04   RF    G59W  G59W  G60MB =     =     G49B  G49B  G49B  
+PLM1  Y05   RF    G34W  =     *     *     *     *     *     *     
+PLM1  Y06   RF    *     *     G24B  G59   =     G59   G59   =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM1  Y04   PHR   G34W  =     *     *     *     *     *     *     
+PLM1  Y05   PHR   G34W  =     *     *     *     *     *     *     
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X00   1F    *     *     *     *     *     FG1   *     
+PLM1  X01   1F    FG2   =     FG1   FG1   =     *     *     
+PLM1  X01A  1F    *     *     *     *     *     FG1   FG1   
+PLM1  X02   1F    FG1   =     *     *     *     *     *     
+PLM1  X02A  1F    *     *     *     *     *     *     *     
+PLM1  X03   1F    FG1   =     FG1   *     *     FG1   =     
+PLM1  X04   1F    FG1   =     FG1   FG1   FG1   FG1   FG1   
+PLM1  X04A  1F    *     *     *     *     *     *     *     
+PLM1  X05   1F    FG2   =     FG1   FG1   =     FG1   FG1   
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X04   1FD   G34MB G34MB *     *     *     *     *     
+PLM1  X04A  1FD   *     *     G34MB G34MB =     *     *     
+PLM1  X05   1FD   G58   =     G34MB G34MB =     *     *     
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X00   2F    *     *     *     *     *     G58   *     
+PLM1  X01   2F    G58   =     G58   G58   =     *     *     
+PLM1  X01A  2F    *     *     *     *     *     G58   G29B  
+PLM1  X02   2F    *     *     *     *     *     *     *     
+PLM1  X02A  2F    *     *     *     *     *     *     *     
+PLM1  X03   2F    G59B  G59B  G59B  G59B  =     G44B  =     
+PLM1  X04   2F    *     *     G58   G58   G58   G58   G34MB 
+PLM1  X04A  2F    *     *     *     *     *     *     *     
+PLM1  X05   2F    *     *     *     *     *     G58   G34MB 
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X04   2FD   G34MB G34MB *     *     *     *     *     
+PLM1  X04A  2FD   *     *     G34MB G34MB =     *     *     
+PLM1  X05   2FD   G59   =     G34MB G34MB =     *     *     
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X00   3F    *     *     *     *     *     G59   *     
+PLM1  X01   3F    G59   =     G59   G58   =     *     *     
+PLM1  X01A  3F    *     *     *     *     *     G59   G29B  
+PLM1  X02   3F    *     *     *     *     *     *     *     
+PLM1  X02A  3F    *     *     *     *     *     *     *     
+PLM1  X03   3F    G49B  G49B  G49B  G49B  =     G44B  =     
+PLM1  X04   3F    *     *     G59   G59   G59   *     *     
+PLM1  X04A  3F    *     *     *     *     *     *     *     
+PLM1  X05   3F    *     *     *     *     *     G59   G34MB 
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X04   3FD   G34MB G34MB *     *     *     *     *     
+PLM1  X04A  3FD   *     *     G34MB G34MB =     *     *     
+PLM1  X05   3FD   G59   =     G34MB G34MB =     *     *     
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X00   RF    *     *     *     *     *     G34W  *     
+PLM1  X01   RF    G59   =     G59   G59   =     *     *     
+PLM1  X01A  RF    *     *     *     *     *     G34W  G29B  
+PLM1  X02   RF    *     *     *     *     *     *     *     
+PLM1  X02A  RF    *     *     *     *     *     *     *     
+PLM1  X03   RF    G59B  G59B  G59B  G59B  =     G49B  =     
+PLM1  X04   RF    *     *     G59   G59   =     *     *     
+PLM1  X04A  RF    *     *     *     *     *     *     *     
+PLM1  X05   RF    *     *     *     *     *     G59   G34MB 
+
+**************** Y01   Y01A  Y02   Y03   Y03A  Y04   Y05   Y06   
+PLM1  X00   PHR   *     *     *     *     *     G34W  *     
+PLM1  X01A  PHR   *     *     *     *     *     G34W  *     
+
+**************** *梁天端寸法の配置(段差） PLM7  1F    Y01   Y01A  X01:X15 45.0  
+
+**************** *****************************柱情報************************************ 
+
+**************** *     柱鉄骨断面 
+CME1 H5030XA H-500*300*14*19*13-SM490 * 
+     H5030XB H-500*300*14*22*13-SM490 * 
+     H5030YA * H-500*300*14*19*13-SM490 
+     H5030YB * H-500*300*14*22*13-SM490 
+     H3030X H-300*300*10*15*13-SM490 * 
+     H3030XA H-300*300*12*19*13-SM490 * 
+     H3030Y * H-300*300*10*15*13-SM490 
+     H3030YA * H-300*300*12*19*13-SM490 
+     H3015X H-294*200*8*12*13-SM490 * 
+
+**************** CME2  BC1T  4/2-4/2-12-D38 2-2-D13-100 
+
+**************** *     柱付帯条件 
+
+**************** DX*DY JX    JY    NXNY  5     6     7     T     BPL材  ｱﾝｶｰ材 
+CME3 CB1X BP-80*60 AB-70*48 3-2-6-M39-78 * * * 50 TM490 ABR490 * * * * * 
+&      * 
+     CB2X BP-60*60 AB-44*44 3-3-8-M39-78 * * * 50 TM490 ABR490 * * * * * 
+&      * 
+     CB2Y BP-60*60 AB-44*44 2-3-8-M39-78 * * * 50 TM490 ABR490 * * * * * 
+&      * 
+CME3 CB1Y BP-60*80 AB-48*70 2-3-6-M39-84 * * * 50 TM490 ABR490 * * * * * 
+&      * 
+     CB3 BP-40*60 AB-20*48 2-2-4-M39-78 * * * 50 TM490 ABR490 * * * * * 
+&      * 
+
+**************** *梁天端寸法の配置(段差） 
+PLM7 1F Y01:Y06 X00:X05 30.0 
+PLM7 1F X00:X05 Y01:Y06 30.0 
+
+**************** *S柱部材 
+CMD1 3FD C50XA H5030XA * * * * * 1.0 
+     3F C50XA H5030XA * * * * * 1.0 
+     2FD C50XA H5030XA * * * * * 1.0 
+     2F C50XA H5030XA * * * * * 1.0 
+     1FD C50XA H5030XB * * * * * 1.0 
+     1F C50XA H5030XB * CB1X * * * 1.0 
+CMD1 3FD C50YA H5030YA * * * * 1.0 * 
+     3F C50YA H5030YA * * * * 1.0 * 
+     2FD C50YA H5030YA * * * * 1.0 * 
+     2F C50YA H5030YA * * * * 1.0 * 
+     1FD C50YA H5030YB * * * * 1.0 * 
+     1F C50YA H5030YB * CB1Y * * 1.0 * 
+CMD1 3FD C30YA H3030Y * * * * 1.0 * 
+     3F C30YA H3030Y * * * * 1.0 * 
+     2FD C30YA H3030Y * * * * 1.0 * 
+     2F C30YA H3030Y * * * * 1.0 * 
+     1FD C30YA H3030YA * * * * 1.0 * 
+     1F C30YA H3030YA * CB2Y * * 1.0 * 
+CMD1 3FD C30XA H3030X * * * * * 1.0 
+     3F C30XA H3030X * * * * * 1.0 
+     2FD C30XA H3030X * * * * * 1.0 
+     2F C30XA H3030X * * * * * 1.0 
+     1FD C30XA H3030XA * * * * * 1.0 
+     1F C30XA H3030XA * CB2X * * * 1.0 
+CMD1 3FD C3YA H3030Y * * * * 1.0 * 
+     3F C3YA H3030Y * * * * 1.0 * 
+     2FD C3YA H3030Y * * * * 1.0 * 
+     2F C3YA H3030Y * * * * 1.0 * 
+     1FD C3YA H3030Y * CB3 * * 1.0 * 
+CMD1 3FD C3Y H3030Y * * * * 1.0 * 
+     3F C3Y H3030Y * * * * 1.0 * 
+     2FD C3Y H3030Y * * * * 1.0 * 
+     2F C3Y H3030Y * * * * 1.0 * 
+     1FD C3Y H3030Y * * * * 1.0 * 
+     1F C3Y H3030Y * CB3 * * 1.0 * 
+CMD1 3FD C50X H5030XA * * * * * 1.0 
+     3F C50X H5030XA * * * * * 1.0 
+     2FD C50X H5030XA * * * * * 1.0 
+     2F C50X H5030XA * * * * * 1.0 
+     1FD C50X H5030XB * CB1X * * * 1.0 
+CMD1 3FD C50Y H5030YA * * * * 1.0 * 
+     3F C50Y H5030YA * * * * 1.0 * 
+     2FD C50Y H5030YA * * * * 1.0 * 
+     2F C50Y H5030YA * * * * 1.0 * 
+     1FD C50Y H5030YB * CB1Y * * 1.0 * 
+CMD1 RF C30Y H3030Y * * * * 1.0 * 
+     3FD C30Y H3030Y * * * * 1.0 * 
+     3F C30Y H3030Y * * * * 1.0 * 
+     2FD C30Y H3030Y * * * * 1.0 * 
+     2F C30Y H3030Y * * * * 1.0 * 
+     1FD C30Y H3030YA * CB2Y * * 1.0 * 
+CMD1 3FD C30X H3030X * * * * * 1.0 
+     3F C30X H3030X * * * * * 1.0 
+     2FD C30X H3030X * * * * * 1.0 
+     2F C30X H3030X * * * * * 1.0 
+     1FD C30X H3030XA * CB2X * * * 1.0 
+     2FD C3X H3015X * * * * * 1.0 
+
+**************** **    柱の配置  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   1F    *     =     *     =     *     C50XA C50XA *     C30XA 
+PLM2  Y01A  1F    *     *     *     *     *     *     *     *     *     
+PLM2  Y02   1F    *     =     *     *     *     =     C30YA *     C30YA 
+PLM2  Y03   1F    *     =     *     *     *     =     C50YA *     C3Y   
+PLM2  Y03A  1F    *     *     *     *     *     *     =     *     *     
+PLM2  Y04   1F    =     *     =     *     *     =     C30YA *     C30YA 
+PLM2  Y05   1F    =     *     =     *     *     *     =     *     =     
+PLM2  Y06   1F    *     *     =     =     *     =     =     *     =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   1FD   *     C30Y  *     C50X  *     *     =     *     =     
+PLM2  Y01A  1FD   *     *     *     *     *     *     *     *     *     
+PLM2  Y02   1FD   *     C50Y  *     *     *     C30X  C30YA *     =     
+PLM2  Y03   1FD   *     C50Y  *     *     *     C30X  C50YA *     =     
+PLM2  Y03A  1FD   *     *     *     *     *     *     C50Y  *     *     
+PLM2  Y04   1FD   C30Y  *     C30Y  *     *     C30X  C30YA *     C30YA 
+PLM2  Y05   1FD   C30Y  *     C30Y  *     *     *     C30Y  *     C30Y  
+PLM2  Y06   1FD   *     *     C30X  C50X  *     C50X  C50X  *     C30X  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   2F    *     =     *     =     =     C50XA C50XA *     C30XA 
+PLM2  Y01A  2F    *     *     *     *     *     *     *     *     *     
+PLM2  Y02   2F    *     =     *     *     *     =     C30YA *     C30YA 
+PLM2  Y03   2F    *     =     *     *     *     =     C50YA *     C3Y   
+PLM2  Y03A  2F    *     *     *     *     *     *     =     *     *     
+PLM2  Y04   2F    =     *     =     *     *     =     =     *     *     
+PLM2  Y05   2F    =     *     =     *     *     *     *     *     =     
+PLM2  Y06   2F    *     *     =     =     *     =     =     *     =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   2FD   *     C30Y  *     C50X  C3X   *     =     *     =     
+PLM2  Y01A  2FD   *     *     *     *     *     *     *     *     *     
+PLM2  Y02   2FD   *     C50Y  *     *     *     C30X  C30YA *     =     
+PLM2  Y03   2FD   *     C50Y  *     *     *     C30X  C50YA *     =     
+PLM2  Y03A  2FD   *     *     *     *     *     *     C50Y  *     *     
+PLM2  Y04   2FD   C30Y  *     C30Y  *     *     C30X  C30YA *     C30YA 
+PLM2  Y05   2FD   C30Y  *     C30Y  *     *     *     *     *     C30Y  
+PLM2  Y06   2FD   *     *     C30X  C50X  *     C50X  C50X  *     C30X  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   3F    *     =     *     =     *     C50XA C50XA *     C30XA 
+PLM2  Y01A  3F    *     *     *     *     *     *     *     *     *     
+PLM2  Y02   3F    *     =     *     *     *     =     C30YA *     C30YA 
+PLM2  Y03   3F    *     =     *     *     *     =     C50YA *     C3Y   
+PLM2  Y03A  3F    *     *     *     *     *     *     *     *     *     
+PLM2  Y04   3F    =     *     =     *     *     =     =     *     *     
+PLM2  Y05   3F    =     *     =     *     *     *     *     *     =     
+PLM2  Y06   3F    *     *     =     =     *     =     =     *     =     
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y01   3FD   *     C30Y  *     C50X  *     *     *     *     *     
+PLM2  Y01A  3FD   *     *     *     *     *     *     *     *     *     
+PLM2  Y02   3FD   *     C50Y  *     *     *     C30X  C30YA *     *     
+PLM2  Y03   3FD   *     C50Y  *     *     *     C30X  C50YA *     *     
+PLM2  Y03A  3FD   *     *     *     *     *     *     *     *     *     
+PLM2  Y04   3FD   C30Y  *     C30Y  *     *     C30X  C30YA *     C30YA 
+PLM2  Y05   3FD   C30Y  *     C30Y  *     *     *     *     *     C30Y  
+PLM2  Y06   3FD   *     *     C30X  C50X  *     C50X  C50X  *     C30X  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLM2  Y04   RF    C30Y  *     C30Y  *     *     *     *     *     *     
+PLM2  Y05   RF    C30Y  *     C30Y  *     *     *     *     *     *     
+
+**************** *梁天端寸法の配置(段差） PLM7  1F    Y01:Y06   X00:X05 30.0  
+
+**************** ****************************************ブレース情報************************** 
+
+**************** ****************************************ブレース情報************************** 
+
+**************** **屋根面水平ブレース 
+BMD3 HV1 A-4900 X RC 
+PLS5 1FD X04A:X05 Y02:Y03 HV1 
+PLS5 2FD X04A:X05 Y02:Y03 HV1 
+PLS5 2FD X04A:X05 Y03:Y04 HV1 
+PLS5 3FD X04A:X05 Y02:Y03 HV1 
+PLS5 3FD X04A:X05 Y03:Y04 HV1 
+
+**************** ***************************************床組情報******************************* 
+
+**************** *     床荷重   
+ALD3 TL01X 10.5 150 3000-2200-1200 * X 駐車場(2-RF) 
+     TL01Y 10.5 150 3000-2200-1200 * Y 駐車場(2-RF) 
+     TL02X 12.5 2410 3000-2200-1200 * X 駐車場(2F防水) 
+     TL02Y 12.5 2410 3000-2200-1200 * Y 駐車場(2F防水) 
+     TL03X 10.5 150 3000-2200-1200 3000 X 駐車場(RF積雪) 
+     TL03Y 10.5 150 3000-2200-1200 3000 Y 駐車場(RF積雪) 
+     TL05X 0.0 2500 2400-2000-600 * X 階段(2-RF) 
+     TL05Y 0.0 2500 2400-2000-600 * Y 階段(2-RF) 
+     TL06X 0.0 3670 900-650-300 3000 X PHR屋根 
+     TL06Y 0.0 3670 900-650-300 3000 Y PHR屋根 
+     TL07X 10.5 380 3000-2200-1200 * X 駐車場(2-RF) 
+     TL07Y 10.5 380 3000-2200-1200 * Y 駐車場(2-RF) 
+     TL08X 10.5 380 3000-2200-1200 3000 X 駐車場(RF積雪) 
+     TL08Y 10.5 380 3000-2200-1200 3000 Y 駐車場(RF積雪) 
+
+**************** *     小梁    
+SMD1 LB * H-175*90*5.0*8*8 * * * * N 
+     B17 * H-175*90*5.0*8*8 * * * * N 
+     B20 * H-200*100*5.5*8*8 * * * * Y 
+     B24M * H-248*124*5.0*8*8-SM490 * * * * Y 
+     B24 * H-248*124*5.0*8*8 * * * * Y 
+     B25 * H-250*125*6.0*9*8 * * * * Y 
+     B29 * H-298*149*5.5*8*13 * * * * Y 
+     B30 * H-300*150*6.5*9*13 * * * * Y 
+     B34 * H-346*174*6.0*9*13 * * * * Y 
+     B35 * H-350*175*7*11*13 * * * * Y 
+     B39 * H-396*199*7*11*13 * * * * Y 
+     B44 * H-446*199*8*12*13 * * * * Y 
+     B49 * H-496*199*9*14*13 * * * * Y 
+     B59 * H-596*199*10*15*13 * * * * Y 
+     G59B * H-596*199*10*15*13 * * * * Y 
+     B60 * H-600*200*11*17*13 * * * * Y 
+     FB1 BD-45*60 * * * * * * 
+
+**************** ***************************************床組情報******************************* 
+
+**************** *     床組    
+SMD2 PHR Y-1 TL06X-TL06X B24 
+SMD2 EV10 Y-1 *-TL01X B24 
+SMD2 EV11 X-1 TL05Y-EV10 B24 
+SMD2 EV20 Y-1 *-TL02X B24 
+SMD2 EV21 X-1 TL05Y-EV20 B24 
+SMD2 EV30 Y-1 *-TL03X B24 
+SMD2 EV31 X-1 TL05Y-EV30 B24 
+SMD2 FY13 Y-3 TL01X-TL01X-TL01X-TL01X B29-B29-B29 
+SMD2 FY12 Y-2 TL01X-TL01X-TL01X B29-B29 
+SMD2 FY11 Y-1 TL01X-TL01X B29 
+SMD2 FY13B Y-3 TL01X-TL01X-TL01X-TL01X B44-B44-B44 
+SMD2 FY12B Y-2 TL01X-TL01X-TL01X B44-B44 
+SMD2 FY11B Y-1 TL01X-TL01X B44 
+SMD2 FY13C Y-3 TL01X-TL01X-TL01X-TL01X B49-B49-B49 
+SMD2 FY12C Y-2 TL01X-TL01X-TL01X B49-B49 
+SMD2 FY11C Y-1 TL01X-TL01X B49 
+SMD2 FY13D Y-3 TL01X-TL01X-TL01X-TL01X B20-B20-B20 
+SMD2 FY12D Y-2 TL01X-TL01X-TL01X B20-B20 
+SMD2 FY11D Y-1 TL01X-TL01X B20 
+SMD2 FX13 X-3 TL01Y-TL01Y-TL01Y-TL01Y B29-B29-B29 
+SMD2 FX12 X-2 TL01Y-TL01Y-TL01Y B29-B29 
+SMD2 FX11 X-1 TL01Y-TL01Y B29 
+SMD2 FX13B X-3 TL01Y-TL01Y-TL01Y-TL01Y B44-B44-B44 
+SMD2 FX12B X-2 TL01Y-TL01Y-TL01Y B44-B44 
+SMD2 FX11B X-1 TL01Y-TL01Y B44 
+SMD2 FX14C X-4 TL01Y-TL01Y-TL01Y-TL01Y-TL01Y B49-B49-B49-B49 
+SMD2 FX13C X-3 TL01Y-TL01Y-TL01Y-TL01Y B49-B49-B49 
+SMD2 FX12C X-2 TL01Y-TL01Y-TL01Y B49-B49 
+SMD2 FX11C X-1 TL01Y-TL01Y B49 
+SMD2 FX13D X-3 TL01Y-TL01Y-TL01Y-TL01Y B20-B20-B20 
+SMD2 FX12D X-2 TL01Y-TL01Y-TL01Y B20-B20 
+SMD2 FX11D X-1 TL01Y-TL01Y B20 
+SMD2 FX13F X-3 TL01Y-TL01Y-TL01Y-TL01Y B59-B59-B59 
+SMD2 FX12F X-2 TL01Y-TL01Y-TL01Y B59-B59 
+SMD2 FX11F X-1 TL01Y-TL01Y B59 
+SMD2 FY24 Y-4 TL02X-TL02X-TL02X-TL02X-TL02X B29-B29-B29-B29 
+SMD2 FY23 Y-3 TL02X-TL02X-TL02X-TL02X B29-B29-B29 
+SMD2 FY22 Y-2 TL02X-TL02X-TL02X B29-B29 
+SMD2 FY21 Y-1 TL02X-TL02X B29 
+SMD2 FY23B Y-3 TL02X-TL02X-TL02X-TL02X B49-B49-B49 
+SMD2 FY22B Y-2 TL02X-TL02X-TL02X B49-B49 
+SMD2 FY21B Y-1 TL02X-TL02X B49 
+SMD2 FY23C Y-3 TL02X-TL02X-TL02X-TL02X B59-B59-B59 
+SMD2 FY22C Y-2 TL02X-TL02X-TL02X B59-B59 
+SMD2 FY21C Y-1 TL02X-TL02X B59 
+SMD2 FY23D Y-3 TL02X-TL02X-TL02X-TL02X B24-B24-B24 
+SMD2 FY22D Y-2 TL02X-TL02X-TL02X B24-B24 
+SMD2 FY21D Y-1 TL02X-TL02X B24 
+SMD2 FY23E Y-3 TL02X-TL02X-TL02X-TL02X B44-B44-B44 
+SMD2 FY22E Y-2 TL02X-TL02X-TL02X B44-B44 
+SMD2 FY21E Y-1 TL02X-TL02X B44 
+SMD2 FY23F Y-3 TL02X-TL02X-TL02X-TL02X B60-B60-B60 
+SMD2 FY22F Y-2 TL02X-TL02X-TL02X B60-B60 
+SMD2 FY21F Y-1 TL02X-TL02X B60 
+SMD2 FX24 X-4 TL02Y-TL02Y-TL02Y-TL02Y-TL02Y B29-B29-B29-B29 
+SMD2 FX23 X-3 TL02Y-TL02Y-TL02Y-TL02Y B29-B29-B29 
+SMD2 FX22 X-2 TL02Y-TL02Y-TL02Y B29-B29 
+SMD2 FX21 X-1 TL02Y-TL02Y B29 
+SMD2 FX23B X-3 TL02Y-TL02Y-TL02Y-TL02Y B49-B49-B49 
+SMD2 FX22B X-2 TL02Y-TL02Y-TL02Y B49-B49 
+SMD2 FX21B X-1 TL02Y-TL02Y B49 
+SMD2 FX24C X-4 TL02Y-TL02Y-TL02Y-TL02Y-TL02Y B59-B59-B59-B59 
+SMD2 FX23C X-3 TL02Y-TL02Y-TL02Y-TL02Y B59-B59-B59 
+SMD2 FX22C X-2 TL02Y-TL02Y-TL02Y B59-B59 
+SMD2 FX21C X-1 TL02Y-TL02Y B59 
+SMD2 FX23D X-3 TL02Y-TL02Y-TL02Y-TL02Y B24-B24-B24 
+SMD2 FX22D X-2 TL02Y-TL02Y-TL02Y B24-B24 
+SMD2 FX21D X-1 TL02Y-TL02Y B24 
+SMD2 FX23F X-3 TL02Y-TL02Y-TL02Y-TL02Y B60-B60-B60 
+SMD2 FX22F X-2 TL02Y-TL02Y-TL02Y B60-B60 
+SMD2 FX21F X-1 TL02Y-TL02Y B60 
+SMD2 FXA X-1 FY22-FY22 G59B 495 
+SMD2 FY33 Y-3 TL03X-TL03X-TL03X-TL03X B29-B29-B29 
+SMD2 FY32 Y-2 TL03X-TL03X-TL03X B29-B29 
+SMD2 FY31 Y-1 TL03X-TL03X B29 
+SMD2 FY33B Y-3 TL03X-TL03X-TL03X-TL03X B49-B49-B49 
+SMD2 FY32B Y-2 TL03X-TL03X-TL03X B49-B49 
+SMD2 FY31B Y-1 TL03X-TL03X B49 
+SMD2 FY33C Y-3 TL03X-TL03X-TL03X-TL03X B59-B59-B59 
+SMD2 FY32C Y-2 TL03X-TL03X-TL03X B59-B59 
+SMD2 FY31C Y-1 TL03X-TL03X B59 
+SMD2 FY33D Y-3 TL03X-TL03X-TL03X-TL03X B24-B24-B24 
+SMD2 FY32D Y-2 TL03X-TL03X-TL03X B24-B24 
+SMD2 FY31D Y-1 TL03X-TL03X B24 
+SMD2 FY33F Y-3 TL03X-TL03X-TL03X-TL03X B60-B60-B60 
+SMD2 FY32F Y-2 TL03X-TL03X-TL03X B60-B60 
+SMD2 FY31F Y-1 TL03X-TL03X B60 
+SMD2 FX33 X-3 TL03Y-TL03Y-TL03Y-TL03Y B29-B29-B29 
+SMD2 FX32 X-2 TL03Y-TL03Y-TL03Y B29-B29 
+SMD2 FX31 X-1 TL03Y-TL03Y B29 
+SMD2 FX33B X-3 TL03Y-TL03Y-TL03Y-TL03Y B49-B49-B49 
+SMD2 FX32B X-2 TL03Y-TL03Y-TL03Y B49-B49 
+SMD2 FX31B X-1 TL03Y-TL03Y B49 
+SMD2 FX34C X-4 TL03Y-TL03Y-TL03Y-TL03Y-TL03Y B59-B59-B59-B59 
+SMD2 FX33C X-3 TL03Y-TL03Y-TL03Y-TL03Y B59-B59-B59 
+SMD2 FX32C X-2 TL03Y-TL03Y-TL03Y B59-B59 
+SMD2 FX31C X-1 TL03Y-TL03Y B59 
+SMD2 FX33D X-3 TL03Y-TL03Y-TL03Y-TL03Y B24-B24-B24 
+SMD2 FX32D X-2 TL03Y-TL03Y-TL03Y B24-B24 
+SMD2 FX31D X-1 TL03Y-TL03Y B24 
+SMD2 FX33F X-3 TL03Y-TL03Y-TL03Y-TL03Y B60-B60-B60 
+SMD2 FX32F X-2 TL03Y-TL03Y-TL03Y B60-B60 
+SMD2 FX31F X-1 TL03Y-TL03Y B60 
+SMD2 FX73 X-3 TL07Y-TL07Y-TL07Y-TL07Y B29-B29-B29 
+SMD2 FX72 X-2 TL07Y-TL07Y-TL07Y B29-B29 
+SMD2 FX71 X-1 TL07Y-TL07Y B29 
+SMD2 FY73 Y-3 TL07X-TL07X-TL07X-TL07X B29-B29-B29 
+SMD2 FY72 Y-2 TL07X-TL07X-TL07X B29-B29 
+SMD2 FY71 Y-1 TL07X-TL07X B29 
+SMD2 FX83 X-3 TL08Y-TL08Y-TL08Y-TL08Y B29-B29-B29 
+SMD2 FX82 X-2 TL08Y-TL08Y-TL08Y B29-B29 
+SMD2 FX81 X-1 TL08Y-TL08Y B29 
+SMD2 FY83 Y-3 TL08X-TL08X-TL08X-TL08X B29-B29-B29 
+SMD2 FY82 Y-2 TL08X-TL08X-TL08X B29-B29 
+SMD2 FY81 Y-1 TL08X-TL08X B29 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  1FD   Y01:Y01A *     *     *     *     *     FY21  FY22  FY22  
+PLS1  1FD   Y01A:Y02 *     *     *     *     *     *     FY22  FY22  
+PLS1  1FD   Y02:Y03 *     *     *     *     *     *     *     FX21  
+PLS1  1FD   Y03:Y04 *     *     *     *     *     *     *     FX22  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  2F    Y01:Y01A *     FX21F FX21F FX21F FX21F *     *     *     
+PLS1  2F    Y01A:Y02 *     FX21F FX21F FX21F FX21F *     *     *     
+PLS1  2F    Y02:Y03 *     FX21C FX21C FX21C FX21C FX21D *     *     
+PLS1  2F    Y03:Y04 *     FX22C FX22C FX22C FX22C FX22D *     *     
+PLS1  2F    Y04:Y05 EV21  EV21  FY23B FY23B FY23B FY21E FY22E FY22E 
+PLS1  2F    Y05:Y06 *     *     FY23B FY23B FY23B FY21E FY22E FY22E 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  2FD   Y01:Y01A *     *     *     *     *     FY71  FY72  FY72  
+PLS1  2FD   Y01A:Y02 *     *     *     *     *     *     FY72  FY72  
+PLS1  2FD   Y02:Y03 *     *     *     *     *     *     *     FX71  
+PLS1  2FD   Y03:Y04 *     *     *     *     *     *     *     FX72  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  3F    Y01:Y01A *     FX11F FX11F FX11F FX11F *     *     *     
+PLS1  3F    Y01A:Y02 *     FX11F FX11F FX11F FX11F *     *     *     
+PLS1  3F    Y02:Y03 *     FX11C FX11C FX11C FX11C FX11D *     *     
+PLS1  3F    Y03:Y04 *     FX12C FX12C FX12C FX12C FX12D *     *     
+PLS1  3F    Y04:Y05 EV11  EV11  FY13B FY13B FY13B FY13B FY13B FY13B 
+PLS1  3F    Y05:Y06 *     *     FY13B FY13B FY13B FY13B FY13B FY13B 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  3FD   Y01:Y01A *     *     *     *     *     FY81  FY82  FY82  
+PLS1  3FD   Y01A:Y02 *     *     *     *     *     *     FY82  FY82  
+PLS1  3FD   Y02:Y03 *     *     *     *     *     *     *     FX81  
+PLS1  3FD   Y03:Y04 *     *     *     *     *     *     *     FX82  
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  RF    Y01:Y01A *     FX31F FX31F FX31F FX31F *     *     *     
+PLS1  RF    Y01A:Y02 *     FX31F FX31F FX31F FX31F *     *     *     
+PLS1  RF    Y02:Y03 *     FX31C FX31C FX31C FX31C FX31D *     *     
+PLS1  RF    Y03:Y04 *     FX32C FX32C FX32C FX32C FX32D *     *     
+PLS1  RF    Y04:Y05 EV11  EV11  FY33B FY33B FY33B FY33B FY33B FY33B 
+PLS1  RF    Y05:Y06 *     *     FY33B FY33B FY33B FY33B FY33B FY33B 
+
+**************** X00   X01   X01A  X02   X02A  X03   X04   X04A  X05   
+PLS1  PHR   Y04:Y05 PHR   PHR   *     *     *     *     *     *     
+
+****************  
+
+**************** *壁の配置 
+
+**************** X1    X2    X3    X4    X5    X6    X7    X8    X9    X20A  X21   
+
+**************** Y2    X5F   *     *     *     *     *     C1X   C1X   *     *     *     *     
+
+**************** *片持梁の配置 
+
+**************** 1F    PP    Y2    L     FCG1  *     
+
+**************** 1F    Y1    X21   L     FCG1  *     
+
+**************** 1F    P8    X21   L     FCG1  *     
+
+**************** *片持床の配置 
+
+**************** 2F:RF PP    Y1:Y2 U     CS1   
+
+**************** 2F:RF Y1    X21A1:X21 L     CS2   
+
+**************** 2F:RF P8    X21A1:X21 R     CS2   
+
+**************** *壁開口の配置 
+
+**************** X16   X16A  X17   X17A  X18   X18A  X19   X19A  X20   X20A  X21   
+
+**************** Y16   3S    OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   OY1   
+
+**************** *梁寄り寸法の配置(未） 
+
+**************** 2S    Y01   Y01A  X16A:X21 G     D     -8.5  
+
+**************** *隅切り床の配置 
+
+**************** RF    Y8A:Y05 X16A:X2A RD    SR01  
+
+**************** *     R階外壁  ***   
+
+**************** RF    X19   Y03:Y03A 0     0     0.3   L     L     R     
+
+**************** *壁寄り寸法の配置 
+
+**************** 1S:2S Y01   Y01A  X16A:X21 G     D     0.0   
+
+**************** *梁天端寸法の配置(段差） 
+
+**************** 1F    Y1:P8 X21A:PP 25.0  
+
+**************** 1F    X21A:PP Y1:P8 25.0  
+
+**************** *壁開口  
+
+**************** OY1   600.0 1-50.0-150.0-110.0-90.0 21-0.0-100.0-0.0-200.0 
+
+**************** *鉄骨部材の仕上げ重量 
+ALD2 * * * 1 0 1 0 * * 1.03 1.03 *　　 
+
+**************** *支点位置変更 
+
+**************** 1S    Y01   Y01A  X16:X24A 
+
+**************** *接点の同一化 
+
+**************** X18   Y02   Y02A  
+
+**************** *コンクリ-ト部材の仕上げ重量 
+ALD1 * * * 0 0 0 
+
+**************** *構造種別 
+BAS1 * 1F:RF S 
+
+**************** *使用コンクリ?ト材料 
+MAT1 1F * FC24 23.0 
+MAT1 1FD:RF * FC21 23.0 
+
+**************** *使用鉄筋材料 
+MAT2 D10:D16 SD295 1 D19:D25 SD345 1.1 D29:D51 SD390 1.1 
+
+**************** *使用鉄骨材料 
+
+**************** 梁ﾌﾗﾝｼﾞ ｳｪﾌﾞ  柱ﾌﾗﾝｼﾞ ｳｪﾌﾞ　ﾌﾞﾚｰｽ　壁　　ｱﾝｶｰ　 高力ボルト 
+MAT3 SS400 SS400 SM490 SM490 SM490 SS400 ABR490 
+END   
