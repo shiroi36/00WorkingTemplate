@@ -1,0 +1,305 @@
+' PlantUMLによるガントチャートのテンプレート
+' 生成環境: plantuml.com/plantuml
+' 公式ドキュメント: plantuml.com/ja/gantt-diagram
+'   https://plantuml.com/ja/
+'   https://gist.github.com/yoggy/bd68b3f1f55dbd742bea71424ca66564
+' ctrl+/ でコメントアウト
+' ctrl+shift+P→plantuml export または plantuml preview
+' 文の開始
+@startgantt
+
+<style>
+arrow {
+    '矢印を削除
+    'linecolor #00000000
+}
+</style>
+
+' 解像度設定
+skinparam dpi 400
+' 言語設定
+language ja
+' 下側の日付表示を隠す
+hide footbox
+
+''''''''''''''''''''''基本設定の部分'''''''''''''''''''''''''''''''''''''''''''
+title タイトル
+header %date("yyyy年MM月dd日")\n(株)アイ・テック エンジニアリングGr
+
+' カレンダーの単位と縮尺の設定
+' weekly設定時はwith calendar dateとつけることで週番号から週開始日に表示を変更可
+'printscale weekly with calendar date zoom 0.5
+printscale monthly
+
+' カレンダー開始日 
+!$start_json = {
+    "year": 2022,
+    "month": 11,
+    "day": 1
+}
+
+Project starts %string($start_json.year + "-" + $start_json.month + "-" + $start_json.day)
+
+' 今日を色付けで表示
+%date("yyyy-MM-dd") is colored in Salmon
+
+' 着工日
+!$cko_json = {
+    "year": 2023,
+    "month": 11,
+    "day": 15
+}
+
+' 竣工日
+!$sko_json = {
+    "year": 2025,
+    "month": 2,
+    "day": 1
+}
+
+' 竣工日後の余白（単位：月）
+!$end_margin = 3
+
+!$cko = $cko_json.year + "-" + $cko_json.month + "-" + $cko_json.day
+!$sko = $sko_json.year + "-" + $sko_json.month + "-" + $sko_json.day
+
+[着工] happens $cko
+$cko is colored in DodgerBlue
+
+' printscale monthlyとした場合の縦線
+!$year_end = %intval($sko_json.year)
+!$month_end = %intval($sko_json.month) + $end_margin
+!if $month_end > 12
+    !$year_end = $year_end + 1
+    !$month_end = $month_end - 12
+!endif
+
+!$year = %intval($start_json.year)
+
+!while $year <= $year_end
+    !$month = 1
+    !while $month <= 12 && ($year != $year_end || $month <= $month_end)
+        %string($year + "-" + $month +"-1") is colored in LightGray
+        !$month = $month + 1
+    !endwhile
+
+    !$year = $year + 1
+!endwhile
+
+' 同じの名前のタスクを複数作成可能にするための関数
+!unquoted function $task($name, $i)
+!return "[" + $name + "<size:0>" + $i + "</size>]"
+!endfunction
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+-- 1: 工程表1 --
+
+' 数珠つなぎパターン構文
+$task(タスク13内容, 101) as [タスク13] ends                $cko and lasts 90 days 
+' ↑
+$task(タスク12内容, 102) as [タスク12] ends   0 days after [タスク13]'s start and lasts 90 days 
+' ↑
+$task(タスク11内容, 103) as [タスク11] ends   0 days after [タスク12]'s start and lasts 90 days 
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(タスク14内容, 104) as [タスク14] starts 0 days after [タスク13]'s end and lasts 90 days 
+' ↓
+$task(タスク15内容, 105) as [タスク15] starts 0 days after [タスク14]'s end and lasts 90 days 
+' ↓
+$task(タスク16内容, 106) as [タスク16] starts 0 days after [タスク15]'s end and lasts 90 days 
+' ↓
+$task(タスク17内容, 107) as [タスク17] starts 0 days after [タスク16]'s end and ends $sko
+' 着工
+
+''〆切一列目
+$task(〆切11内容, 108) as [〆切11] happens at [タスク11]'s end
+' ↑
+$task(〆切12内容, 109)             happens at [タスク12]'s end and displays on same row as [〆切11]
+' ↑
+$task(〆切13内容, 110)             happens at [タスク13]'s end and displays on same row as [〆切11]
+' ↑
+$task(〆切14内容, 111)             happens at [タスク14]'s end and displays on same row as [〆切11]
+
+''二列目
+$task(〆切1A内容, 112) as [〆切1A] happens at [タスク14]'s end
+$task(〆切1B内容, 113)             happens at [タスク15]'s end and displays on same row as [〆切1A]
+$task(〆切1C内容, 114)             happens at [タスク16]'s end and displays on same row as [〆切1A]
+$task(〆切1D内容, 115)             happens at [タスク17]'s end and displays on same row as [〆切1A]
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-- 2: 工程表2 --
+
+' 数珠つなぎパターン構文
+$task(タスク23内容, 201) as [タスク23] ends                $cko and lasts 90 days 
+' ↑
+$task(タスク22内容, 202) as [タスク22] ends   0 days after [タスク23]'s start and lasts 90 days 
+' ↑
+$task(タスク21内容, 203) as [タスク21] ends   0 days after [タスク22]'s start and lasts 90 days 
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(タスク24内容, 204) as [タスク24] starts 0 days after [タスク23]'s end and lasts 90 days 
+' ↓
+$task(タスク25内容, 205) as [タスク25] starts 0 days after [タスク24]'s end and lasts 90 days 
+' ↓
+$task(タスク26内容, 206) as [タスク26] starts 0 days after [タスク25]'s end and lasts 90 days 
+' ↓
+$task(タスク27内容, 207) as [タスク27] starts 0 days after [タスク26]'s end and ends $sko
+
+''〆切一列目
+$task(〆切21内容, 208) as [〆切21] happens at [タスク21]'s end
+$task(〆切22内容, 209)             happens at [タスク22]'s end and displays on same row as [〆切21]
+$task(〆切23内容, 210)             happens at [タスク23]'s end and displays on same row as [〆切21]
+$task(〆切24内容, 211)             happens at [タスク24]'s end and displays on same row as [〆切21]
+
+''二列目
+$task(〆切2A内容, 212) as [〆切2A] happens at [タスク24]'s end
+$task(〆切2B内容, 213)             happens at [タスク25]'s end and displays on same row as [〆切2A]
+$task(〆切2C内容, 214)             happens at [タスク26]'s end and displays on same row as [〆切2A]
+$task(〆切2D内容, 215)             happens at [タスク27]'s end and displays on same row as [〆切2A]
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-- 3: 工程表3 --
+
+' 数珠つなぎパターン構文
+$task(タスク33内容, 301) as [タスク33] ends                $cko and lasts 90 days 
+' ↑
+$task(タスク32内容, 302) as [タスク32] ends   0 days after [タスク33]'s start and lasts 90 days 
+' ↑
+$task(タスク31内容, 303) as [タスク31] ends   0 days after [タスク32]'s start and lasts 90 days 
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(タスク34内容, 304) as [タスク34] starts 0 days after [タスク33]'s end and lasts 90 days 
+' ↓
+$task(タスク35内容, 305) as [タスク35] starts 0 days after [タスク34]'s end and lasts 90 days 
+' ↓
+$task(タスク36内容, 306) as [タスク36] starts 0 days after [タスク35]'s end and lasts 90 days 
+' ↓
+$task(タスク37内容, 307) as [タスク37] starts 0 days after [タスク36]'s end and ends $sko
+
+''〆切一列目
+$task(〆切31内容, 308) as [〆切31] happens at [タスク31]'s end
+$task(〆切32内容, 309)             happens at [タスク32]'s end and displays on same row as [〆切31]
+$task(〆切33内容, 310)             happens at [タスク33]'s end and displays on same row as [〆切31]
+$task(〆切34内容, 311)             happens at [タスク34]'s end and displays on same row as [〆切31]
+
+''二列目
+$task(〆切3A内容, 312) as [〆切3A] happens at [タスク34]'s end
+$task(〆切3B内容, 313)             happens at [タスク35]'s end and displays on same row as [〆切3A]
+$task(〆切3C内容, 314)             happens at [タスク36]'s end and displays on same row as [〆切3A]
+$task(〆切3D内容, 315)             happens at [タスク37]'s end and displays on same row as [〆切3A]
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-- 4: 工程表4 --
+
+' 数珠つなぎパターン構文
+$task(タスク43内容, 401) as [タスク43] ends                $cko and lasts 90 days 
+' ↑
+$task(タスク42内容, 402) as [タスク42] ends   0 days after [タスク43]'s start and lasts 90 days 
+' ↑
+$task(タスク41内容, 403) as [タスク41] ends   0 days after [タスク42]'s start and lasts 90 days 
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(タスク44内容, 404) as [タスク44] starts 0 days after [タスク43]'s end and lasts 90 days 
+' ↓
+$task(タスク45内容, 405) as [タスク45] starts 0 days after [タスク44]'s end and lasts 90 days 
+' ↓
+$task(タスク46内容, 406) as [タスク46] starts 0 days after [タスク45]'s end and lasts 90 days 
+' ↓
+$task(タスク47内容, 407) as [タスク47] starts 0 days after [タスク46]'s end and ends $sko
+
+''〆切一列目
+$task(〆切41内容, 408) as [〆切41] happens at [タスク41]'s end
+$task(〆切42内容, 409)             happens at [タスク42]'s end and displays on same row as [〆切41]
+$task(〆切43内容, 410)             happens at [タスク43]'s end and displays on same row as [〆切41]
+$task(〆切44内容, 411)             happens at [タスク44]'s end and displays on same row as [〆切41]
+
+''二列目
+$task(〆切4A内容, 412) as [〆切4A] happens at [タスク44]'s end
+$task(〆切4B内容, 413)             happens at [タスク45]'s end and displays on same row as [〆切4A]
+$task(〆切4C内容, 414)             happens at [タスク46]'s end and displays on same row as [〆切4A]
+$task(〆切4D内容, 415)             happens at [タスク47]'s end and displays on same row as [〆切4A]
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-- 5: 工程表5 --
+
+' 数珠つなぎパターン構文
+$task(タスク53内容, 501) as [タスク53] ends                $cko and lasts 90 days 
+' ↑
+$task(タスク52内容, 502) as [タスク52] ends   0 days after [タスク53]'s start and lasts 90 days 
+' ↑
+$task(タスク51内容, 503) as [タスク51] ends   0 days after [タスク52]'s start and lasts 90 days 
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(タスク54内容, 504) as [タスク54] starts 0 days after [タスク53]'s end and lasts 90 days 
+' ↓
+$task(タスク55内容, 505) as [タスク55] starts 0 days after [タスク54]'s end and lasts 90 days 
+' ↓
+$task(タスク56内容, 506) as [タスク56] starts 0 days after [タスク55]'s end and lasts 90 days 
+' ↓
+$task(タスク57内容, 507) as [タスク57] starts 0 days after [タスク56]'s end and ends $sko
+
+''〆切一列目
+$task(〆切51内容, 508) as [〆切51] happens at [タスク51]'s end
+$task(〆切52内容, 509)             happens at [タスク52]'s end and displays on same row as [〆切51]
+$task(〆切53内容, 510)             happens at [タスク53]'s end and displays on same row as [〆切51]
+$task(〆切54内容, 511)             happens at [タスク54]'s end and displays on same row as [〆切51]
+
+''二列目
+$task(〆切5A内容, 512) as [〆切5A] happens at [タスク54]'s end
+$task(〆切5B内容, 513)             happens at [タスク55]'s end and displays on same row as [〆切5A]
+$task(〆切5C内容, 514)             happens at [タスク56]'s end and displays on same row as [〆切5A]
+$task(〆切5D内容, 515)             happens at [タスク57]'s end and displays on same row as [〆切5A]
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-- 建築設計業務 --
+$task(本受付, 601)   ends   $cko                            and lasts 30 days
+' ↑
+$task(仮受付, 602)   ends   0 days after $task(本受付, 601)'s   start and lasts 30 days
+' ↑
+$task(実施設計, 603) ends   0 days after $task(仮受付, 602)'s   start and lasts 240 days 
+' ↑
+$task(基本設計, 604) ends   0 days after $task(実施設計, 603)'s start and lasts 75 days
+note bottom
+メモ
+end note
+'！！！！着工日!!!!!!!
+$task(設計監理, 605) starts 0 days after $task(本受付, 601)'s   end   and ends $sko
+
+$task(建築確認済証取得, 606) as [m31] happens at $task(本受付, 601)'s   end
+$task(実施設計着手, 607)              happens at $task(実施設計, 603)'s start and displays on same row as [m31]
+$task(検査済証取得, 608)              happens at $task(設計監理, 605)'s end   and displays on same row as [m31]
+$task(事前申請, 609)                  happens at $task(実施設計, 603)'s end   and displays on same row as [m31]
+$task(設計費覚書, 610)                happens at $task(基本設計, 604)'s end
+
+' 鉄骨工事の名前は変更しないこと
+-- 建築工事(設備含む) --
+$task(基礎工事, 701)   starts $cko                          and lasts 120 days
+$task(鉄骨工事, 702)   starts 0 day  after $task(基礎工事, 701)'s end and lasts 60 days
+$task(その他工事, 703) starts 2 days after $task(鉄骨工事, 702)'s end and ends $sko
+
+$task(竣工引渡, 704) as [m41] happens $sko
+$task(建方, 705)              happens at $task(鉄骨工事, 702)'s start and displays on same row as [m41]
+
+-- 鉄骨製作(2300t, 現場オントラ請負) --
+$task(製作, 801)           ends 30 days after $task(鉄骨工事, 702)'s start and lasts 120 days 
+$task(SH材料発注, 802)     ends  0 days after $task(製作, 801)'s     start and lasts 150 days
+$task(JISH材料発注, 803)   ends  0 days after $task(製作, 801)'s     start and lasts 120 days
+$task(SHTBボルト発注, 804) ends  0 days after $task(鉄骨工事, 702)'s start and lasts 180 days
+
+$task(先行発注, 805) as [m51] happens at 0  day  after  $task(SH材料発注, 802)'s start
+$task(最終請負契約, 806)      happens at 30 days before $task(基礎工事, 701)'s   start and displays on same row as [m51]
+
+' 文の終了
+@endgantt
+
