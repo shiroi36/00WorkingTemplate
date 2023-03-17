@@ -1,5 +1,5 @@
 git init
-git remote add git@github.com:shiroi36/00WorkingTemplate.git
+git remote add origin git@github.com:shiroi36/00WorkingTemplate.git
 git add .
 git commit -m 2023”N3ŒŽ17“ú
 git push origin master
